@@ -1,0 +1,72 @@
+[section Declarations and initializations]
+
+Matlab has no need for variable declarations. This is not the case of C++.
+Thus in NT2 every array must be declared. This requirement is however quite in
+conformance with the Matlab pre-allocation strategy which is advised to improve 
+performance.
+
+[note using C++, take advantage of the mandatory declaration to properly declare and initialize data in one step.]
+
+
+[table:id Minimal declaration of a matrix
+    [[NT2]                      [Matlab]]
+    [[`M_t a;`]                  [`a=[];`]]
+    [[`M_t a = zeros(3,4);`]     [`a=zeros(3,4);`]]
+    [[`M_t a(of_size(3,4));`]    []]
+]
+
+In both situations (NT2/Matlab),
+the first line creates an empty matrix and the second line a 3x4 matrix full of zeros
+
+The third line creates a matrix of size 3x4, and reserves memory for it, ready to receive whatever values.
+In Matlab a non-empty uninitialized matrix does not exist.
+
+
+[table:id More matrices declarations
+    [[NT2]                      [Matlab]]
+    [[`M_t a=zeros(4,5);`]            [`a =zeros(4,5);`]]
+    [[`M_t b=ones(4,5);`]             [`b =ones(4,5);` ]]
+    [[`M_t c=cons(4,5,6,2,8);`]       [`c =[4,5,6,2,8];` ]]
+    [[`double tmp[]={4,5,6,2,8};
+      M_t c(&tmp[0],&tmp[5]);`]       [`c =[4,5,6,2,8];` ]]
+    [[`M_t e(linspace(0.0,1,10));`]   [`e =linspace(0.0,1,10);`]]
+]
+Details about `ones` and similar generators can be found ???.
+Note that `cons` is limited to 256 parameters of the same type[footnote This limitation will be dropped with C++11x]
+and create a line vector.
+
+To work around the first limitation, one can use this syntax:
+  [c++]
+  ``
+   double tmp[]={4,5,6,2,8};
+   M_t c(&tmp[0],&tmp[5]);
+  ``
+To create a 2x4 matrix like this: 
+  [c++]
+  ``
+  [ 1 2 3 4
+    5 6 7 8 ]
+  ``
+
+there are at least three options:
+
+[table:id More matrices declarations
+    [[NT2]                      [Matlab]]
+    [[`M_t a = trans(reshape(_(1,8),4,2));`]                 [` a = reshape(1:8,4,2)`\'`;`]]
+    [[`M_t b = trans(reshape(cons(1,2,3,4,5,6,7,8),4,2));`]  [` b = reshape([1,2,3,4,5,6,7,8],4,2)`\'`;`]]
+    [[`M_t c = trans(cons(of_size(4,2),1,2,3,4,5,6,7,8));`]  []]
+]
+
+
+If the matrix transpose `trans` is omitted (Matlab \') this will produce the matrix:
+  [c++]
+  ``
+  [ 1 3 5 7
+    2 4 6 8 ]
+  ``
+
+as the storage is in column major order.
+[endsect]
+
+
+

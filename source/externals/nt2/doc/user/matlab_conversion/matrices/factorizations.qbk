@@ -1,0 +1,53 @@
+[section Factorizations]
+
+[table:id Factorizations
+[[__MATLAB__ ][ __NT2__   ][ Description                                                  ]]
+[[`balance  `][`balance  `][Diagonal scaling to improve eigenvalue accuracy               ]]
+[[`cdf2rdf TODO  `][`cdf2rdf  `][Convert complex diagonal form to real block diagonal form     ]]
+[[`chol     `][`chol     `][Cholesky factorization                                        ]]
+[[`gsvd   TODO   `][`gsvd     `][Generalized singular value decomposition                      ]]
+[[`ldl    TODO   `][`ldl      `][Block ldl factorization for Hermitian indefinite matrices     ]]
+[[`lu       `][`lu       `][plu matrix factorization                                      ]]
+[[`planerot `][`planerot `][Givens plane rotation                                         ]]
+[[`qr       `][`qr       `][Orthogonal-triangular decomposition                           ]]
+[[`qrdelete `][`qrdelete `][Remove column or row from qr factorization                    ]]
+[[`qrinsert `][`qrinsert `][Insert column or row into qr factorization                    ]]
+[[`qrupdate TODO  `][`qrupdate `][Rank 1 update to QR factorization                             ]]
+[[`qz      TODO  `][`qz       `][qz factorization for generalized eigenvalues                  ]]
+[[`rsf2csf TODO  `][`rsf2csf  `][Convert real Schur form to complex Schur form                 ]]
+[[`svd      `][`svd      `][Singular value decomposition                                  ]]
+]
+[endsect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

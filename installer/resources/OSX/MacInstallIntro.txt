@@ -1,0 +1,13 @@
+
+Thank you for choosing SpectrumWorx!
+
+This application will install the necessary files onto your system:
+  - the VST 2.4 plugin bundle (SpectrumWorx.vst) will be installed to
+    "<selected root path>/Library/Audio/Plug-Ins/VST"
+  - the AU component bundle (SpectrumWorx.component) will be installed to
+    "<selected root path>/Library/Audio/Plug-Ins/Components"
+  - support and resource files will be installed to
+    "<selected root path>/Library/Application Support/Little Endian/SpectrumWorx"
+where <selected root path> is the location you will be given a chance to choose later. By default this is the root of your system drive (installation for all users).
+  
+No automated uninstall procedure is currently provided. If you wish to uninstall SpectrumWorx simply delete the plugin bundle(s) and the support files folder.

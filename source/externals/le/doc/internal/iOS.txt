@@ -1,0 +1,30 @@
+################################################################################
+#
+# iOS platform basic research notes
+#
+# Copyright (c) 2012 - 2016. Little Endian Ltd. All rights reserved.
+#
+################################################################################
+
+* Build environments:
+
+    - Xcode (7.3) under OS X
+        - it is recommended that you turn off the "Autocreate schemes" Xcode 4+
+          option (to avoid Xcode from automatically cluttering your workspace
+          with too many redundant schemes)
+
+    - Windows dev options: http://maniacdev.com/2010/01/iphone-development-windows-options-available
+
+* Building/Debugging:
+    - use the standard CMake-based procedure
+    - Xcode generator
+    - specify the appropriate toolchain file
+      (LEB/core/<branch>/sources/ios.toolchain.cmake), usually located @
+      <project>/source/externals/le/build.
+
+* OS version adoption
+    - http://www.iphonelife.com/blog/12804/when-should-you-start-building-your-mobile-apps-apples-operating-system-ios5-0,
+    - http://insights.chitika.com/2012/report-ios-users-driven-to-update-by-features-rather-than-security
+
+* Hardware
+    - http://en.wikipedia.org/wiki/List_of_iOS_devices

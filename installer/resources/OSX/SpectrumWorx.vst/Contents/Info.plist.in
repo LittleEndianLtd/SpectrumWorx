@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>     <string>English</string>
+    <key>CFBundleExecutable</key>            <string>SpectrumWorx</string>
+    <key>CFBundleGetInfoString</key>         <string>vst</string>
+    <key>CFBundleIdentifier</key>            <string>com.littleendian.spectrumworx.vst</string>
+    <key>CFBundleInfoDictionaryVersion</key> <string>6.0</string>
+    <key>CFBundlePackageType</key>           <string>BNDL</string>
+    <key>CFBundleSignature</key>             <string>LESW</string>
+    <key>CFBundleVersion</key>               <string>@versionString@</string>
+    <key>CFBundleShortVersionString</key>    <string>@versionString@</string>
+    <key>CSResourcesFileMapped</key>         <true/>
+    <key>NSHumanReadableCopyright</key>      <string>Little Endian Ltd.</string>
+</dict>
+</plist>

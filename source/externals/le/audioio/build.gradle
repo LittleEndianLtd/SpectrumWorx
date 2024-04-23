@@ -1,0 +1,26 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// LE AudioIO SDK Gradle file
+///
+/// Copyright (c) 2016. Little Endian Ltd. All rights reserved.
+///
+////////////////////////////////////////////////////////////////////////////////
+
+apply plugin: 'com.android.model.native'
+
+model {
+    android {
+        compileSdkVersion = 10
+        buildToolsVersion = 23
+
+        defaultConfig.with {
+            minSdkVersion   .apiLevel = 10
+            targetSdkVersion.apiLevel = 23
+        }
+    }
+
+    android.ndk {
+        moduleName = "AudioIO"
+        ldLibs.add( "OpenSLES" )
+    }
+}

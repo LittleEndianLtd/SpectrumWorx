@@ -1,0 +1,28 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// LE SDK Utility lib Gradle file
+///
+/// Copyright (c) 2016. Little Endian Ltd. All rights reserved.
+///
+////////////////////////////////////////////////////////////////////////////////
+
+apply plugin: 'com.android.model.native'
+
+apply from: 'utility.gradle'
+
+model {
+    android {
+        compileSdkVersion = 10
+        buildToolsVersion = 23
+
+        defaultConfig.with {
+            minSdkVersion   .apiLevel = 10
+            targetSdkVersion.apiLevel = 23
+        }
+    }
+
+    android.ndk {
+        moduleName = "Utility"
+        ldLibs.addAll( [ "android", "log" ] )
+    }
+}

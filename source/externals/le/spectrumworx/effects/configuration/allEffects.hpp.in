@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// \file allEffects.hpp
+/// --------------------
+///
+/// A single place for inclusion of all the base module classes that will be
+/// used in the SpectrumWorx build process (i.e. the modules that will appear in
+/// the menus and be available to the user).
+/// Automatically updated by CMake.
+///
+/// Copyright (c) 2011 - 2016. Little Endian Ltd. All rights reserved.
+///
+////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+#ifndef allEffects_hpp__97856916_BF23_4B75_8EBC_7F5DEDC4976D
+#define allEffects_hpp__97856916_BF23_4B75_8EBC_7F5DEDC4976D
+#pragma once
+//------------------------------------------------------------------------------
+@completeBaseIncludeList@
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+#endif // allEffects_hpp

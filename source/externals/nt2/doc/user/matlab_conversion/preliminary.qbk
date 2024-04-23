@@ -1,0 +1,44 @@
+[section Preliminary __NT2__ settings]
+Matlab needs its paths set, in order to find the object it will deal with.
+
+Accordingly with NT2 we must work in the proper namespaces and
+include the proper objects to work with.
+
+[h3 Namespaces]
+__NT2__ objects are mostly located in namespaces `nt2` and `nt2::meta`. To simplify the following exposition
+we will suppose that the directives:
+  [c++]
+  ``
+   using nt2
+   using nt2::meta
+  ``
+have been issued.
+
+[warning We do not advise to do so in production and preferably prefix the functors and type by the proper
+namespace to avoid clash problems.]
+
+[h3 Standard matrices]
+
+The array type `table` is ready to use, once we include
+  [c++]
+  ``
+  #include <nt2/table.hpp>
+  ``
+in our source file.
+
+An __NT2__ type very similar to the standard Matlab array of double can now be defined by the following `typedef`:
+  [c++]
+  ``
+  typedef table<double>  M_t;
+  ``
+
+This type's default properties allow dynamic resizing and provide FORTRAN/Matlab like
+indexing and storage behaviour, i.e.
+
+# indexes start at 1
+# storage is in column major order
+
+
+[note Compiling versions of the following simplified examples can be found in ???]
+
+[endsect]

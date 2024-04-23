@@ -1,0 +1,110 @@
+################################################################################
+#
+# Android platform basic research notes
+#
+# Copyright (c) 2012 - 2016. Little Endian Ltd. All rights reserved.
+#
+################################################################################
+
+* Build environments:
+    - Ninja build system (1.60, https://ninja-build.org, autoinstalled)
+    - JDK (8u92) http://www.oracle.com/technetwork/java/javase/downloads/index.html
+    - Android NDK (r11c) http://developer.android.com/tools/sdk/ndk/index.html https://github.com/android-ndk
+        - it should be installed as a 3rd party library, i.e. in the
+          $ENV{LEB_3rdParty_root}/Android/NDK/android-ndk-${androidNDKVersion}
+          directory (where "androidNDKVersion" is a CMake variable set in the
+          crossCompilingHelper.cmake file)
+        - alternative builds
+            - http://www.linaro.org
+            - http://www.crystax.net
+    - Android SDK (r24) http://developer.android.com/sdk/index.html (studio bundle or command line tools separately)
+        - install the required platforms (Android SDK Manager) and emulators (Android AVD Manager)
+    - Android Studio (2.1) http://tools.android.com/download/studio
+        - 'new NDK support preview'
+            http://tools.android.com/tech-docs/android-ndk-preview
+            http://tools.android.com/tech-docs/new-build-system/user-guide
+        - Google NDK samples
+            https://github.com/googlesamples/android-ndk
+        - experimental Android plugin for Gradle
+            http://tools.android.com/tech-docs/new-build-system/gradle-experimental
+            https://bintray.com/android/android-tools/com.android.tools.build.gradle-experimental/view (latest version)
+            http://gradle.org
+            http://docs.groovy-lang.org/latest/html/documentation/index.html
+
+            Gradle C++ support
+                https://github.com/gradle/gradle/blob/master/design-docs/continuous-delivery-for-c-plus-plus.md
+                http://gradle.1045684.n5.nabble.com/dependency-management-for-c-and-native-binaries-td4657106.html
+
+            Project distribution
+                http://stackoverflow.com/questions/16736856/what-should-be-in-my-gitignore-for-an-android-studio-project
+                http://stackoverflow.com/questions/22219505/what-to-commit-into-vcs-from-a-gradle-project-in-android-studio
+
+            App signing
+                http://developer.android.com/tools/publishing/app-signing.html
+                http://stackoverflow.com/questions/32109501/android-studio-1-4-adding-release-keys/32187457#32187457
+                http://tools.android.com/tech-docs/new-build-system/user-guide -> "Signing Configurations"
+                http://stackoverflow.com/questions/18328730/how-to-create-a-release-signed-apk-file-using-gradle
+                - certificates:
+                    - debug: http://stackoverflow.com/questions/2194808/debug-certificate-expired-error-in-eclipse-android-plugins
+                    - release: http://developer.android.com/tools/publishing/app-signing.html#releasemode
+
+            http://stackoverflow.com/questions/24510219/android-studio-min-sdk-version-target-sdk-version-vs-compile-sdk-version
+            http://ph0b.com/android-abis-and-so-files
+
+    - popular OSS libraries cross compilation to Android and iOS https://github.com/mevansam/cmoss
+    - http://www.srombauts.fr/2011/03/15/cmake-for-android
+    - http://da.vidr.cc/projects/lljvm
+
+* Building/Debugging:
+    - IDE project/makefile generation
+        - use the standard CMake-based procedure
+        - use the Ninja generator
+        - specify the appropriate toolchain file
+          (LEB/core/<branch>/sources/android.toolchain.cmake), usually located @
+          <project>/source/externals/le/build
+
+	- Creating the distribution package from the command line:
+        - ninja package (add -j 1 or -j 2 to reduce the stress on the build machine)
+            or
+        - cmake --build <dir-with-the-generated-makefile> --target package
+
+    - Building and running test applications:
+        - Device setup:
+            - http://developer.android.com/tools/device.html
+        - Android Studio:
+            - File -> New -> Import Project
+              -> browse to/choose the >directory< that contains the Android Studio project
+        - Eclipse+ADT:
+            - start "cmd" and cd into example/Android
+            - run "%ANDROID_SDK%\tools\android" update project --path . --target android-<N>
+              where <N> is the minimum required Android API level.
+              - Example command line under Windows:
+                "c:\Program Files\Android\android-sdk\tools\android.bat" update project --path . --target android-14
+            - Add NDK location to Eclipse: Window/Preferences/Android/NDK.        
+            - New Project -> Android -> Android Project from Existing Code
+            - navigate to where unziped build is, then \example\Android, press OK. 
+            - right-click-on-project -> Android Tools -> Add Native Support, press OK without any changes to filename.
+            - right-click-on-project -> Debug As -> Android Native Application
+            - in case of errors consult the troubleshooting section above.
+        - Command line/builtin NDK build:
+            - cd into example/Android
+            - "%ANDROID_NDK%\ndk-build" NDK_DEBUG=1 -B V=1
+            - ant debug
+            - "%ANDROID_SDK%\platform-tools\adb" install -r bin\NativeActivity-debug.apk
+            - examine application output
+                - "%ANDROID_SDK%\platform-tools\adb" logcat -c (clears previous log messages)
+                - "%ANDROID_SDK%\platform-tools\adb" logcat
+            - debug (only supported from a cygwin prompt):
+                - $ANDROID_NDK/ndk-gdb --adb=$ANDROID_SDK/platform-tools/adb.exe --start --verbose
+        - retrieve possible output files:
+                - "%ANDROID_SDK%\platform-tools\adb.exe" pull <path-to-file> 
+                   for example path would be "/data/data/com.littleendian.demo_app/files/SpectrumWorx (TuneWorx).wav"
+
+* Links: 				   
+    - http://developer.android.com/tools/help/adb.html
+    - http://sourceware.org/gdb/current/onlinedocs/gdb
+    - https://github.com/richq/android-ndk-profiler
+    - http://mobilepearls.com/labs/native-android-api
+    
+    - Droid Explorer                 http://de.codeplex.com
+    - Embedded Linux Development Kit http://www.denx.de/wiki/ELDK-5/WebHome

@@ -1,0 +1,181 @@
+[section A Matlab to __NT2__ Introduction]
+This section will take a sample Matlab code and turn it into its __NT2__ counterpart.
+Each step will show __NT2__ and Matlab code relate to each other, highlighting
+both similarities and differences.
+
+Here's our Matlab sample
+
+[teletype]
+``
+y = ones(4,4);
+x = 40 .* y + 2
+``
+
+Nothing very fancy, we compute a =4x4= matrix full of =42=.
+
+Our equivalent C++ code will start as an empty =main= function.
+
+[c++]
+``
+int main()
+{
+
+  return 0;
+}
+``
+
+The first step will be to declare our table =x= and =y=.
+Contrary to Matlab, C++ requires you to declare variables before using them.
+To do this we'll use the __NT2__ table type provided by the following
+include file.
+
+[c++]
+``
+#include <nt2/table.hpp>
+
+int main()
+{
+
+  return 0;
+}
+``
+
+This brings the core __NT2__ elements required for handling tables and
+associated functions. Next we'll define =x= and =y=.
+
+[c++]
+``
+#include <nt2/table.hpp>
+
+using namespace nt2;
+
+int main()
+{
+  table<double> x;
+  table<double> y;
+  return 0;
+}
+``
+
+These two lines defines two __NT2__ tables, =x= and =y=. Notice the
+=using namespace nt2;= line. __NT2__ containers and functions live in the
+`nt2` namespace, which is a C++ construct that behaves like a module. With the
+=using= directive we pull the whole content of the =nt2= namespace in the
+global namespace for simplicity even if good practice is to use symbol-level
+instead of namespace-level using directives.
+
+Once our tables are declared, we can start filling them with data. To fill =y=,
+we'll use the __NT2__ function [funcref nt2::ones ones] which is a copy-cat of
+Matlab =ones=. As a rule of thumb, except for corner cases, if you are used to
+calling =foo= in Matlab, __NT2__ usually has a =nt2::foo= function available.
+Every __NT2__ functions lives in its own dedicated header file for better
+granularity and compile-time control. Here, we will use the proper include to
+access [funcref nt2::ones ones].
+
+[c++]
+``
+#include <nt2/table.hpp>
+#include <nt2/include/functions/ones.hpp>
+
+using namespace nt2;
+
+int main()
+{
+  table<double> x;
+  table<double> y;
+
+  return 0;
+}
+``
+
+We can now initializes =y=. You can do it in two different ways. Either you
+can assign the result of [funcref nt2::ones ones] after the declaration
+of =y=.
+
+[c++]
+``
+table<double> y;
+
+y = ones(4,4);
+``
+
+Or you can actually initializes =y= when it's declared.
+
+
+[c++]
+``
+#include <nt2/table.hpp>
+#include <nt2/include/functions/ones.hpp>
+
+using namespace nt2;
+
+int main()
+{
+  table<double> x;
+  table<double> y = ones(4,4);
+
+  return 0;
+}
+``
+
+What happens to =x=? Well, if =x= is left uninitialized, it will behave as
+an empty table of size =0x1= (just like in Matlab =persistent= variables declarations).
+
+We now compute =x= using the same operators as in Matlab. There are
+however two subtle differences.
+
+* First =.*= does not exist in C++, it's just plain =*=.
+
+* Then, __NT2__ requires a struct type conformance when mixing tables and
+  scalar. This means that our =40= and =2= have to be =double=. We
+  enforce this by adding a decimal point to our scalars.
+
+This leads us to this code:
+
+[c++]
+``
+#include <nt2/table.hpp>
+#include <nt2/include/functions/ones.hpp>
+
+using namespace nt2;
+
+int main()
+{
+  table<double> x;
+  table<double> y = ones(4,4);
+
+  x = 40.0 * y + 2.0;
+
+  return 0;
+}
+``
+
+Most of the time, you will want to write such compact expression so the __NT2__
+code generator can produce proper parallel code without any extra work on your
+side.
+
+We're almost done. We still need to display =x=. This is done in __NT2__ using
+the NT2_DISPLAY macro that will give you an output similar to Matlab. One can
+also just use the standard output stream.
+
+
+[c++]
+``
+#include <nt2/table.hpp>
+#include <nt2/include/functions/ones.hpp>
+
+using namespace nt2;
+
+int main()
+{
+  table<double> x;
+  table<double> y = ones(4,4);
+
+  x = 40.0 * y + 2.0;
+
+  NT2_DISPLAY(x);
+
+  return 0;
+}
+``
+[endsect]

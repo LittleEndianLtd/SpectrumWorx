@@ -1,0 +1,15 @@
+plot_benchmarks: produces either a bar chart or a graph of the benchmark results
+
+Example usage:
+
+RUN_ARGS="-o size_min 32 -o size_max 2048" RUN_CMD="" plot_benchmarks  bar saxpy_scalar sse4.2/saxpy/mkl/saxpy_mkl saxpy/simd/saxpy_simd sse3/saxpy/simd/saxpy_simd simd/saxpy_simd
+creates a bar chart using the executables passed as arguments.
+
+RUN_ARGS="-o size_min 32 -o size_max 2048" RUN_CMD="ANROID_SCRIPT" plot_benchmarks  graph -
+creates a graph from an existing output.txt file. output.txt contains the entire output from a benchmark.
+
+Requirements: octave and imagemagick
+
+The directory where the scripts lie, (NT2_DIR)/script/bash/, should be added to the PATH variable so that the required scritps will be found.
+
+If a script is required to run your benchmark, then RUN_CMD should contain the script name. The script should take the executable as the first argument. The run command in the script should have "${*:2}" after it to ensure that all arguments apart from the executable name which are passed to the script are subsequently passed to the executable.

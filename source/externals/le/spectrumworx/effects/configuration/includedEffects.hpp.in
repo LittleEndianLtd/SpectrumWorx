@@ -1,0 +1,63 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// \file includedEffects.hpp
+/// -------------------------
+///
+/// Copyright (c) 2012 - 2016. Little Endian Ltd. All rights reserved.
+///
+////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+#ifndef includedEffects_hpp__7EA7BD90_59C4_4F59_87BB_3E220D923733
+#define includedEffects_hpp__7EA7BD90_59C4_4F59_87BB_3E220D923733
+#pragma once
+//------------------------------------------------------------------------------
+#include "constants.hpp"
+
+#ifdef LE_SW_FULL
+    #include "boost/mpl/range_c.hpp"
+#else
+    #include "boost/mpl/vector_c.hpp"
+#endif // LE_SW_FULL
+
+#pragma warning( push )
+#pragma warning( disable : 4512 ) // Assignment operator could not be generated.
+#include <array>
+#pragma warning( pop )
+//------------------------------------------------------------------------------
+namespace LE
+{
+//------------------------------------------------------------------------------
+namespace SW
+{
+//------------------------------------------------------------------------------
+namespace Effects
+{
+//------------------------------------------------------------------------------
+#pragma warning( push )
+#pragma warning( disable : 4512 ) // Assignment operator could not be generated.
+
+using IncludedEffects = std::array<bool const, Constants::numberOfEffects>;
+
+extern IncludedEffects const includedEffects;
+
+#pragma warning( pop )
+
+/// Shared list of module indices.
+#ifdef LE_SW_FULL
+    typedef boost::mpl::range_c<unsigned, 0, Constants::numberOfEffects> ValidIndices;
+#else
+    typedef boost::mpl::vector_c
+    <
+		unsigned,
+        @validEffectIndices@
+    > ValidIndices;
+#endif // LE_SW_FULL
+
+//------------------------------------------------------------------------------
+} // namespace Effects
+//------------------------------------------------------------------------------
+} // namespace SW
+//------------------------------------------------------------------------------
+} // namespace LE
+//------------------------------------------------------------------------------
+#endif // includedEffects_hpp

@@ -1,0 +1,75 @@
+################################################################################
+#         Copyright 2003 & onward LASMEA UMR 6602 CNRS/Univ. Clermont II
+#         Copyright 2009 & onward LRI    UMR 8623 CNRS/Univ Paris Sud XI
+#
+#          Distributed under the Boost Software License, Version 1.0.
+#                 See accompanying file LICENSE.txt or copy at
+#                     http://www.boost.org/LICENSE_1_0.txt
+################################################################################
+
+################################################################################
+# Ignore random temporaries and object files
+################################################################################
+*~
+*.o
+*.mk
+*.session
+*.sample
+*.unit
+*.bench
+*.user
+*.vcproj
+*.ncb
+*.sln
+*.suo
+*.exe
+*.desktop
+*.orig
+*_
+*.manifest
+*.res
+*.ilk
+*.pdb
+*.resource.txt
+*.bak
+*.swp
+.DS_Store
+.project
+.cproject
+*.sublime-workspace
+*.instrumented.obj
+my_*
+################################################################################
+# Ignore CMake generated files
+################################################################################
+Makefile
+CMakeFiles
+CMakeCache.txt
+CTestTestfile.cmake
+cmake_install.cmake
+Temp
+Testing
+Debug
+Release
+build
+
+################################################################################
+# Ignore buidl files and python compilation
+################################################################################
+lib/*
+*tags
+*.pyc
+*#*
+
+################################################################################
+# Ignore doxygen output
+################################################################################
+nt2.xml
+nt2.tag
+nt2.doxywarning.txt
+doc/reference/*
+
+################################################################################
+# Ignore mes trucs
+################################################################################
+mestrucs

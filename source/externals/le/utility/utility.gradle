@@ -1,0 +1,31 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// LE SDK Gradle utility functionality
+///
+/// Copyright (c) 2016. Little Endian Ltd. All rights reserved.
+///
+////////////////////////////////////////////////////////////////////////////////
+
+ext.le_sdk_path = file( getRootProject().projectDir ).absolutePath + "/../.."
+
+def le_target_lib_suffix( targetPlatform ) {
+    //println "Got ${targetPlatform} as targetPlatform"
+    logger.info( "Lib suffix for ${targetPlatform}" )
+    if ( targetPlatform.name == "armeabi"     ) return "_ARMv6_VFP2.a"
+    if ( targetPlatform.name == "armeabi-v7a" ) return "_ARMv7a_NEON.a" // _ARMv7a_VFP3-D16.a
+    if ( targetPlatform.name == "arm64-v8a"   ) return "_ARMv8a_64.a"
+    if ( targetPlatform.name == "x86"         ) return "_x86-32_SSSE3.a"
+    if ( targetPlatform.name == "x86_64"      ) return "_x86-64_SSE4.2.a"
+    //throw new GradleException( "Unknown platform (${targetPlatform})." )
+    logger.info( "Unknown platform (${targetPlatform})." )
+    return "<trap>"
+}
+ext.le_target_lib_suffix = this.&le_target_lib_suffix
+
+def le_lib_dir( buildType ) { return ( buildType.name == 'debug' ) ? "development" : "release" }
+ext.le_lib_dir = this.&le_lib_dir
+
+def le_lib_file( libName, targetPlatform, buildType ) {
+    return file( "${le_sdk_path}/libs/${le_lib_dir(buildType)}/lib${libName}_Android${le_target_lib_suffix( targetPlatform )}" )
+}
+ext.le_lib_file = this.&le_lib_file

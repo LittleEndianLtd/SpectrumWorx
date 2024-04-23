@@ -1,0 +1,69 @@
+[section SIMD Data transfer]
+
+The classical idiom of SIMD programming is the blitter. The blitter is a code
+pattern in which data are loaded, processed then stored back to memory. This
+structure allows for a simple software loop unrolling and pipelining. Boost.SIMD
+supports this idiom by providing explicit - and thus more controllable - functions
+for loading and storing data from and to registers.
+
+[section Loading values from memory]
+Loading data from memory is done by [funcref boost::simd::load] and
+[funcref boost::simd::aligned_load].
+
+As implied by their respective names, [funcref boost::simd::aligned_load] requires
+that p is aligned on current SIMD alignment constraint, while [funcref boost::simd::load]
+works with any kind of memory address. Note that, depending on the actual architecture,
+unaligned load may be significantly slower than aligned load.
+
+[funcref boost::simd::aligned_load] however supports loading from an unaligned
+address as long as the misalignment can be known at compile-time. This is the
+case when you want to load data from a sliding windows of fixed size. In this
+case, the misalignment value can be passed as a template parameter to the function.
+
+[endsect]
+
+[section Storing values to memory]
+Storing values back to memory can be done in two ways:
+
+* [funcref boost::simd::store] and [funcref boost::simd::aligned_store] which
+perform a regular store of a given value v at a location reference by a given
+pointer p. As implied by their respective names, [funcref boost::simd::aligned_store]
+requires that p is aligned on current SIMD alignment constraint, while
+[funcref boost::simd::store] works with any kind of memory address. Note that,
+depending on the actual architecture, unaligned store may be significantly slower
+than aligned store.
+
+* [funcref boost::simd::stream] which performs a so-called non-temporal store.
+Non-temporal store has the same semantic than regular store but do not modify nor
+invalidate the cache line containing the destination value. Contrary to
+[funcref boost::simd::store], [funcref boost::simd::stream] requires the reference
+memory to be aligned.
+
+[endsect]
+
+[section Prefetching]
+Prefetching in general means bringing data or instructions from memory into the
+cache before they are needed. When your application needs data that was
+prefetched, instead of waiting for the data from memory, it can grab it from
+cache and keep right on executing. There are actually two main ways in which
+prefetching can occur: initiated by hardware or initiated by software.
+
+Boost.SIMD provides wrappers for software based prefetching via the
+[funcref boost::simd::prefetch_read] and [funcref boost::simd::prefetch_write]
+functions. Those function handle prefteching for respectively read and write
+access and are parametrized by a compile-time hint that describe the strategy
+to apply to the fetched data.
+
+Available hints are defined by [@enumref boost::simd::prefetch_hints]:
+
+* =non_temporal= which marks the data to be not reused later and thus a valid
+candidate to be replaced when a cache miss occurs.
+* =low_locality= which marks the data to be kept in one level of cache
+* =moderate_locality= which marks the data to be kept in some level of caches
+* =high_locality= which marks the data to be kept in all level of caches
+
+Finally, [funcref boost::simd::prefetch_temporary] is provided as a shortcut
+to perform data as a temporary read-only value.
+[endsect]
+
+[endsect]

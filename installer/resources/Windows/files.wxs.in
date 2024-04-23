@@ -1,0 +1,1999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="SUPPORT_ROOT">
+            <Component Id="CMP_ID_3" Guid="*">
+                <!--
+                    http://blogs.msdn.com/b/cjacks/archive/2008/12/04/how-to-set-directory-permissions-at-install-time-using-an-msi-created-using-windows-installer-xml-wix.aspx
+                -->
+                <CreateFolder>
+                    <Permission User="Everyone" GenericAll="yes"/>
+                </CreateFolder>
+                <File Id="FILE_ID_3" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/LittleEndian.url" KeyPath="yes"/>
+                <RemoveFile Id="DatFile" Name="SpectrumWorx.dat" Directory="SUPPORT_ROOT" On="uninstall"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_3">
+            <Component Id="CMP_ID_1" Guid="*">
+                <File Id="FILE_ID_1" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Documents/User's Guide.PDF" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_4">
+            <Component Id="CMP_ID_2" Guid="*">
+                <File Id="FILE_ID_2" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Licences/EULA.txt" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_4" Guid="*">
+                <File Id="FILE_ID_4" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Aeolian.swp" KeyPath="yes"/>
+                <RemoveFile Id="LastSessionFile" Name="__LastSession.swp" Directory="DIR_ID_5" On="uninstall"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_5" Guid="*">
+                <File Id="FILE_ID_5" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Dorian.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_6" Guid="*">
+                <File Id="FILE_ID_6" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Gypsy.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_7" Guid="*">
+                <File Id="FILE_ID_7" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Ionian.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_8" Guid="*">
+                <File Id="FILE_ID_8" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Locrian.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_9" Guid="*">
+                <File Id="FILE_ID_9" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Lydian.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_10" Guid="*">
+                <File Id="FILE_ID_10" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Mixolydian.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_11" Guid="*">
+                <File Id="FILE_ID_11" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Pentatonic major.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_12" Guid="*">
+                <File Id="FILE_ID_12" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Pentatonic minor.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_13" Guid="*">
+                <File Id="FILE_ID_13" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Phrygrian.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_14" Guid="*">
+                <File Id="FILE_ID_14" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Triad augmented.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_15" Guid="*">
+                <File Id="FILE_ID_15" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Triad diminished.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_16" Guid="*">
+                <File Id="FILE_ID_16" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Triad major.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_6">
+            <Component Id="CMP_ID_17" Guid="*">
+                <File Id="FILE_ID_17" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Autotune/LE Triad minor.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_18" Guid="*">
+                <File Id="FILE_ID_18" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(drums 104bpm) Drum Battle.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_19" Guid="*">
+                <File Id="FILE_ID_19" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(drums 104bpm) DrumCoder.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_20" Guid="*">
+                <File Id="FILE_ID_20" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(drums 104bpm) DrumLongerer.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_21" Guid="*">
+                <File Id="FILE_ID_21" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(drums 104bpm) DrumThreshFun.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_22" Guid="*">
+                <File Id="FILE_ID_22" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(drums 104bpm) Hat Battle.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_23" Guid="*">
+                <File Id="FILE_ID_23" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(drums) Convolvevolve.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_24" Guid="*">
+                <File Id="FILE_ID_24" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(rich) Standard Lovely.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_25" Guid="*">
+                <File Id="FILE_ID_25" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(voc) Gender Wobbles.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_26" Guid="*">
+                <File Id="FILE_ID_26" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(voc) Rewrite The Mel.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_8">
+            <Component Id="CMP_ID_27" Guid="*">
+                <File Id="FILE_ID_27" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/CinningBao/SideChainables/(voc) Vocal To Vocal.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_28" Guid="*">
+                <File Id="FILE_ID_28" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Basement Voices.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_29" Guid="*">
+                <File Id="FILE_ID_29" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Boiler.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_30" Guid="*">
+                <File Id="FILE_ID_30" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Creepy Deepy.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_31" Guid="*">
+                <File Id="FILE_ID_31" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Digital March.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_32" Guid="*">
+                <File Id="FILE_ID_32" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Flying Saucer.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_33" Guid="*">
+                <File Id="FILE_ID_33" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Great Escape.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_34" Guid="*">
+                <File Id="FILE_ID_34" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Jumbo Jet Down Total.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_35" Guid="*">
+                <File Id="FILE_ID_35" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Jumbo Jet Down.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_36" Guid="*">
+                <File Id="FILE_ID_36" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Jumbo Jet Total.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_37" Guid="*">
+                <File Id="FILE_ID_37" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Jumbo Jet Up Total.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_38" Guid="*">
+                <File Id="FILE_ID_38" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Jumbo Jet Up.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_39" Guid="*">
+                <File Id="FILE_ID_39" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Jumbo Jet.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_40" Guid="*">
+                <File Id="FILE_ID_40" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Nervous Perls.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_41" Guid="*">
+                <File Id="FILE_ID_41" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Ruby Chamber.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_42" Guid="*">
+                <File Id="FILE_ID_42" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Skokomish.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_43" Guid="*">
+                <File Id="FILE_ID_43" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Small Wall.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_44" Guid="*">
+                <File Id="FILE_ID_44" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Space Race.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_45" Guid="*">
+                <File Id="FILE_ID_45" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Spiner.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_46" Guid="*">
+                <File Id="FILE_ID_46" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Stomper.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_47" Guid="*">
+                <File Id="FILE_ID_47" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Windy Days.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_9">
+            <Component Id="CMP_ID_48" Guid="*">
+                <File Id="FILE_ID_48" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Echoes/LE Wiper.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_49" Guid="*">
+                <File Id="FILE_ID_49" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Claw.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_50" Guid="*">
+                <File Id="FILE_ID_50" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Colonel Kurtz.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_51" Guid="*">
+                <File Id="FILE_ID_51" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Digital March.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_52" Guid="*">
+                <File Id="FILE_ID_52" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Ghost in the Opera.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_53" Guid="*">
+                <File Id="FILE_ID_53" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Gilgandra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_54" Guid="*">
+                <File Id="FILE_ID_54" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Glass Rain.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_55" Guid="*">
+                <File Id="FILE_ID_55" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Illawarra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_56" Guid="*">
+                <File Id="FILE_ID_56" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Jao.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_57" Guid="*">
+                <File Id="FILE_ID_57" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Lazzzers.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_58" Guid="*">
+                <File Id="FILE_ID_58" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Nervous Perls.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_59" Guid="*">
+                <File Id="FILE_ID_59" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Once Upon a Time.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_60" Guid="*">
+                <File Id="FILE_ID_60" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Ribar.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_61" Guid="*">
+                <File Id="FILE_ID_61" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Robokid.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_62" Guid="*">
+                <File Id="FILE_ID_62" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Shelve.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_63" Guid="*">
+                <File Id="FILE_ID_63" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Sirup Freeze.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_64" Guid="*">
+                <File Id="FILE_ID_64" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Stomper.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_65" Guid="*">
+                <File Id="FILE_ID_65" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Swoosh.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_66" Guid="*">
+                <File Id="FILE_ID_66" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Tears in Heaven.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_67" Guid="*">
+                <File Id="FILE_ID_67" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Triad major Autotune.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_10">
+            <Component Id="CMP_ID_68" Guid="*">
+                <File Id="FILE_ID_68" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/ESS/ESS Windy Days.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_69" Guid="*">
+                <File Id="FILE_ID_69" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Anything but Silence.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_70" Guid="*">
+                <File Id="FILE_ID_70" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Blood Group A.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_71" Guid="*">
+                <File Id="FILE_ID_71" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Bullet Escape.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_72" Guid="*">
+                <File Id="FILE_ID_72" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Bulletdodger.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_73" Guid="*">
+                <File Id="FILE_ID_73" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Fight Club.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_74" Guid="*">
+                <File Id="FILE_ID_74" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Haircut.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_75" Guid="*">
+                <File Id="FILE_ID_75" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE High Lines.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_76" Guid="*">
+                <File Id="FILE_ID_76" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Laugh Track.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_77" Guid="*">
+                <File Id="FILE_ID_77" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Look Who's Talking.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_78" Guid="*">
+                <File Id="FILE_ID_78" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Low and Slow.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_79" Guid="*">
+                <File Id="FILE_ID_79" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Mad Max.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_80" Guid="*">
+                <File Id="FILE_ID_80" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Squeaking.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_81" Guid="*">
+                <File Id="FILE_ID_81" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Turntables.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_11">
+            <Component Id="CMP_ID_82" Guid="*">
+                <File Id="FILE_ID_82" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Extreme/LE Where It's At.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_12">
+            <Component Id="CMP_ID_83" Guid="*">
+                <File Id="FILE_ID_83" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Frozen/LE Alias.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_12">
+            <Component Id="CMP_ID_84" Guid="*">
+                <File Id="FILE_ID_84" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Frozen/LE Shelve.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_85" Guid="*">
+                <File Id="FILE_ID_85" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Angry Tendrils.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_86" Guid="*">
+                <File Id="FILE_ID_86" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Antique Syncopated.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_87" Guid="*">
+                <File Id="FILE_ID_87" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Big Bottom.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_88" Guid="*">
+                <File Id="FILE_ID_88" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Bird Song.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_89" Guid="*">
+                <File Id="FILE_ID_89" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Bojangles.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_90" Guid="*">
+                <File Id="FILE_ID_90" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Chime Dancing.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_91" Guid="*">
+                <File Id="FILE_ID_91" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Chopper Machine.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_92" Guid="*">
+                <File Id="FILE_ID_92" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Chunky Strike.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_93" Guid="*">
+                <File Id="FILE_ID_93" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Clutter Dropout.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_94" Guid="*">
+                <File Id="FILE_ID_94" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Crystalline.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_95" Guid="*">
+                <File Id="FILE_ID_95" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Cyclic Destruction.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_96" Guid="*">
+                <File Id="FILE_ID_96" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Delayed Harmonics.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_97" Guid="*">
+                <File Id="FILE_ID_97" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Delicate Shimmers.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_98" Guid="*">
+                <File Id="FILE_ID_98" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Dimensional Interface.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_99" Guid="*">
+                <File Id="FILE_ID_99" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Disappearing Glass.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_100" Guid="*">
+                <File Id="FILE_ID_100" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Doom Slider.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_101" Guid="*">
+                <File Id="FILE_ID_101" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Engine Klang.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_102" Guid="*">
+                <File Id="FILE_ID_102" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Fine Whine.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_103" Guid="*">
+                <File Id="FILE_ID_103" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Giggles.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_104" Guid="*">
+                <File Id="FILE_ID_104" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Glass Landscape.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_105" Guid="*">
+                <File Id="FILE_ID_105" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Glitch City.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_106" Guid="*">
+                <File Id="FILE_ID_106" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Gong Drones.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_107" Guid="*">
+                <File Id="FILE_ID_107" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Harmonica Player.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_108" Guid="*">
+                <File Id="FILE_ID_108" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Howling Wind.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_109" Guid="*">
+                <File Id="FILE_ID_109" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Interwarp.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_110" Guid="*">
+                <File Id="FILE_ID_110" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Metallic Slicer.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_111" Guid="*">
+                <File Id="FILE_ID_111" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Metallophone.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_112" Guid="*">
+                <File Id="FILE_ID_112" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Moan Rising.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_113" Guid="*">
+                <File Id="FILE_ID_113" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Monster Battle.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_114" Guid="*">
+                <File Id="FILE_ID_114" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Motor Drone.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_115" Guid="*">
+                <File Id="FILE_ID_115" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Pipework Solo.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_116" Guid="*">
+                <File Id="FILE_ID_116" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Puffing &amp; Panting.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_117" Guid="*">
+                <File Id="FILE_ID_117" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Punch Drunk.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_118" Guid="*">
+                <File Id="FILE_ID_118" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Random Chaos.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_119" Guid="*">
+                <File Id="FILE_ID_119" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Resonant Thunk.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_120" Guid="*">
+                <File Id="FILE_ID_120" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Return Of The Thud.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_121" Guid="*">
+                <File Id="FILE_ID_121" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Shudders.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_122" Guid="*">
+                <File Id="FILE_ID_122" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Simple Sweep.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_123" Guid="*">
+                <File Id="FILE_ID_123" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Sore Throat.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_124" Guid="*">
+                <File Id="FILE_ID_124" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Spring Sync.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_125" Guid="*">
+                <File Id="FILE_ID_125" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Static Stutter.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_126" Guid="*">
+                <File Id="FILE_ID_126" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Stereo Slicer.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_127" Guid="*">
+                <File Id="FILE_ID_127" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Tinkletoes.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_128" Guid="*">
+                <File Id="FILE_ID_128" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Train Sub.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_129" Guid="*">
+                <File Id="FILE_ID_129" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Universal Translator.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_130" Guid="*">
+                <File Id="FILE_ID_130" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Whip Sync.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_131" Guid="*">
+                <File Id="FILE_ID_131" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Whispers.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_132" Guid="*">
+                <File Id="FILE_ID_132" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Whistle A Tune.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_133" Guid="*">
+                <File Id="FILE_ID_133" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Wind Harmonies.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_14">
+            <Component Id="CMP_ID_134" Guid="*">
+                <File Id="FILE_ID_134" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Martin Walker/Gamma Shift/Woodpecker.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_15">
+            <Component Id="CMP_ID_135" Guid="*">
+                <File Id="FILE_ID_135" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Noise/LE Crickets.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_15">
+            <Component Id="CMP_ID_136" Guid="*">
+                <File Id="FILE_ID_136" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Noise/LE Glass Rain.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_15">
+            <Component Id="CMP_ID_137" Guid="*">
+                <File Id="FILE_ID_137" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Noise/LE Leaps.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_15">
+            <Component Id="CMP_ID_138" Guid="*">
+                <File Id="FILE_ID_138" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Noise/LE Noise Follower.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_15">
+            <Component Id="CMP_ID_139" Guid="*">
+                <File Id="FILE_ID_139" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Noise/LE Swoosh.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_15">
+            <Component Id="CMP_ID_140" Guid="*">
+                <File Id="FILE_ID_140" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Noise/LE Total Eliminator.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_141" Guid="*">
+                <File Id="FILE_ID_141" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Assembly Lines.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_142" Guid="*">
+                <File Id="FILE_ID_142" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Caffe Break.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_143" Guid="*">
+                <File Id="FILE_ID_143" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Chicken Cage.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_144" Guid="*">
+                <File Id="FILE_ID_144" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Claw.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_145" Guid="*">
+                <File Id="FILE_ID_145" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Hectic.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_146" Guid="*">
+                <File Id="FILE_ID_146" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Intervention.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_147" Guid="*">
+                <File Id="FILE_ID_147" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Invention.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_148" Guid="*">
+                <File Id="FILE_ID_148" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Miaow Storm.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_149" Guid="*">
+                <File Id="FILE_ID_149" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Plastic.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_150" Guid="*">
+                <File Id="FILE_ID_150" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Roze.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_151" Guid="*">
+                <File Id="FILE_ID_151" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Septica.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_152" Guid="*">
+                <File Id="FILE_ID_152" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Shifts.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_153" Guid="*">
+                <File Id="FILE_ID_153" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE So What!.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_154" Guid="*">
+                <File Id="FILE_ID_154" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Tears in Heaven.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_155" Guid="*">
+                <File Id="FILE_ID_155" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Thin Air.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_16">
+            <Component Id="CMP_ID_156" Guid="*">
+                <File Id="FILE_ID_156" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Random/LE Underwater.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_157" Guid="*">
+                <File Id="FILE_ID_157" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_AcidCopter.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_158" Guid="*">
+                <File Id="FILE_ID_158" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_AcidWorms.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_159" Guid="*">
+                <File Id="FILE_ID_159" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_AlarmBoxRox.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_160" Guid="*">
+                <File Id="FILE_ID_160" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_AngryAlienWhispers.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_161" Guid="*">
+                <File Id="FILE_ID_161" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_AngryRobot.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_162" Guid="*">
+                <File Id="FILE_ID_162" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_AngryRobotsReturn.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_163" Guid="*">
+                <File Id="FILE_ID_163" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_Behemoth.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_164" Guid="*">
+                <File Id="FILE_ID_164" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_BenzoDiazobots.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_165" Guid="*">
+                <File Id="FILE_ID_165" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_BrainDrain.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_166" Guid="*">
+                <File Id="FILE_ID_166" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_BufferPusher.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_167" Guid="*">
+                <File Id="FILE_ID_167" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_BuzzCopter.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_168" Guid="*">
+                <File Id="FILE_ID_168" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_CentipedeShuffle.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_169" Guid="*">
+                <File Id="FILE_ID_169" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_CircadianSuckerPunch.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_170" Guid="*">
+                <File Id="FILE_ID_170" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_DeadOperator.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_171" Guid="*">
+                <File Id="FILE_ID_171" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_DemonicPhaseSlew.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_172" Guid="*">
+                <File Id="FILE_ID_172" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_DigiShuffler.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_173" Guid="*">
+                <File Id="FILE_ID_173" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_DigitalSpelunking.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_174" Guid="*">
+                <File Id="FILE_ID_174" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_DubAntz.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_175" Guid="*">
+                <File Id="FILE_ID_175" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_EarwormShuffle.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_176" Guid="*">
+                <File Id="FILE_ID_176" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_EvergladeSlop.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_177" Guid="*">
+                <File Id="FILE_ID_177" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_GrainFilter.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_178" Guid="*">
+                <File Id="FILE_ID_178" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_HarmonicMachinery.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_179" Guid="*">
+                <File Id="FILE_ID_179" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_HijackedSignal.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_180" Guid="*">
+                <File Id="FILE_ID_180" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_IceShuffler.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_181" Guid="*">
+                <File Id="FILE_ID_181" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_MaggotsMetamorphosis.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_182" Guid="*">
+                <File Id="FILE_ID_182" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_MarchOfTheEarMaggots.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_183" Guid="*">
+                <File Id="FILE_ID_183" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_MechanicalWaves.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_184" Guid="*">
+                <File Id="FILE_ID_184" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_ModularPunchingBag.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_185" Guid="*">
+                <File Id="FILE_ID_185" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_PhaseModImpact.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_186" Guid="*">
+                <File Id="FILE_ID_186" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_PressureBoxing.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_187" Guid="*">
+                <File Id="FILE_ID_187" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_Resentment.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_188" Guid="*">
+                <File Id="FILE_ID_188" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_RoboPop.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_189" Guid="*">
+                <File Id="FILE_ID_189" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_RobotsRevenge.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_190" Guid="*">
+                <File Id="FILE_ID_190" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_ScratchModular.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_191" Guid="*">
+                <File Id="FILE_ID_191" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_SlowAndLow.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_192" Guid="*">
+                <File Id="FILE_ID_192" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_SlowMachineSadness.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_193" Guid="*">
+                <File Id="FILE_ID_193" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_SputterFlux.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_194" Guid="*">
+                <File Id="FILE_ID_194" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_SquelchyGrainPunch.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_195" Guid="*">
+                <File Id="FILE_ID_195" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_StalactiteRock.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_196" Guid="*">
+                <File Id="FILE_ID_196" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_StalactiteRockSteady.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_197" Guid="*">
+                <File Id="FILE_ID_197" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_SuckerPop.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_198" Guid="*">
+                <File Id="FILE_ID_198" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_TensionSweeper.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_199" Guid="*">
+                <File Id="FILE_ID_199" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_TheGreatDestroyer.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_200" Guid="*">
+                <File Id="FILE_ID_200" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_ThisIsWhereIMakeMyRobots.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_201" Guid="*">
+                <File Id="FILE_ID_201" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_ToborEsrever.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_202" Guid="*">
+                <File Id="FILE_ID_202" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_ToyboxDemons.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_203" Guid="*">
+                <File Id="FILE_ID_203" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_TransformerCrunch.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_204" Guid="*">
+                <File Id="FILE_ID_204" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_UprockDubPop.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_205" Guid="*">
+                <File Id="FILE_ID_205" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_WetDreams.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_18">
+            <Component Id="CMP_ID_206" Guid="*">
+                <File Id="FILE_ID_206" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Syndicate Synthetique/Overt Dynamics/SS_WetMetalSlide.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_207" Guid="*">
+                <File Id="FILE_ID_207" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Colonel Kurtz.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_208" Guid="*">
+                <File Id="FILE_ID_208" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Funny Games.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_209" Guid="*">
+                <File Id="FILE_ID_209" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Hit the Breaks.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_210" Guid="*">
+                <File Id="FILE_ID_210" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Hurricane going your way.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_211" Guid="*">
+                <File Id="FILE_ID_211" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Just One Sec.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_212" Guid="*">
+                <File Id="FILE_ID_212" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Landing.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_213" Guid="*">
+                <File Id="FILE_ID_213" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Lazzzers.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_214" Guid="*">
+                <File Id="FILE_ID_214" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Lulu.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_215" Guid="*">
+                <File Id="FILE_ID_215" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Random Trains.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_216" Guid="*">
+                <File Id="FILE_ID_216" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Retreat.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_217" Guid="*">
+                <File Id="FILE_ID_217" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Technologic.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_19">
+            <Component Id="CMP_ID_218" Guid="*">
+                <File Id="FILE_ID_218" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Techno/LE Through the Barricades.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_219" Guid="*">
+                <File Id="FILE_ID_219" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Adaminaby.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_220" Guid="*">
+                <File Id="FILE_ID_220" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Angurugu.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_221" Guid="*">
+                <File Id="FILE_ID_221" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Bamaga.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_222" Guid="*">
+                <File Id="FILE_ID_222" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Berri.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_223" Guid="*">
+                <File Id="FILE_ID_223" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Bindoon.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_224" Guid="*">
+                <File Id="FILE_ID_224" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Bunyip.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_225" Guid="*">
+                <File Id="FILE_ID_225" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Burraneer.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_226" Guid="*">
+                <File Id="FILE_ID_226" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Coonabarabran.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_227" Guid="*">
+                <File Id="FILE_ID_227" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Coonawarra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_228" Guid="*">
+                <File Id="FILE_ID_228" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Cooroy.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_229" Guid="*">
+                <File Id="FILE_ID_229" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Dandenong.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_230" Guid="*">
+                <File Id="FILE_ID_230" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Dowerin.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_231" Guid="*">
+                <File Id="FILE_ID_231" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Dubbo.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_232" Guid="*">
+                <File Id="FILE_ID_232" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Echuca.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_233" Guid="*">
+                <File Id="FILE_ID_233" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Eneabba.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_234" Guid="*">
+                <File Id="FILE_ID_234" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Gilgandra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_235" Guid="*">
+                <File Id="FILE_ID_235" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Gingin.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_236" Guid="*">
+                <File Id="FILE_ID_236" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Gulgong.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_237" Guid="*">
+                <File Id="FILE_ID_237" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Illawarra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_238" Guid="*">
+                <File Id="FILE_ID_238" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Indooroopilly.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_239" Guid="*">
+                <File Id="FILE_ID_239" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Jeparit.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_240" Guid="*">
+                <File Id="FILE_ID_240" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Joondalup.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_241" Guid="*">
+                <File Id="FILE_ID_241" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Kalamunda.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_242" Guid="*">
+                <File Id="FILE_ID_242" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Kangy Angy.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_243" Guid="*">
+                <File Id="FILE_ID_243" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Karumba.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_244" Guid="*">
+                <File Id="FILE_ID_244" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Koo Wee Rup.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_245" Guid="*">
+                <File Id="FILE_ID_245" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Mandurah.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_246" Guid="*">
+                <File Id="FILE_ID_246" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Mareeba.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_247" Guid="*">
+                <File Id="FILE_ID_247" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Millaa Millaa.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_248" Guid="*">
+                <File Id="FILE_ID_248" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Moe.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_249" Guid="*">
+                <File Id="FILE_ID_249" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Ngunnawal.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_250" Guid="*">
+                <File Id="FILE_ID_250" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Nhulunbuy.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_251" Guid="*">
+                <File Id="FILE_ID_251" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Noosa.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_252" Guid="*">
+                <File Id="FILE_ID_252" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Nowra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_253" Guid="*">
+                <File Id="FILE_ID_253" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Onkaparinga.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_254" Guid="*">
+                <File Id="FILE_ID_254" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Ouyen.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_255" Guid="*">
+                <File Id="FILE_ID_255" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Paroo.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_256" Guid="*">
+                <File Id="FILE_ID_256" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Parramatta.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_257" Guid="*">
+                <File Id="FILE_ID_257" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Pialligo.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_258" Guid="*">
+                <File Id="FILE_ID_258" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Ramingining.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_259" Guid="*">
+                <File Id="FILE_ID_259" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Tamar.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_260" Guid="*">
+                <File Id="FILE_ID_260" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Tambellup.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_261" Guid="*">
+                <File Id="FILE_ID_261" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Tanunda.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_262" Guid="*">
+                <File Id="FILE_ID_262" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Tincurrin.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_263" Guid="*">
+                <File Id="FILE_ID_263" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Tumbi Umbi.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_264" Guid="*">
+                <File Id="FILE_ID_264" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Uralla.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_265" Guid="*">
+                <File Id="FILE_ID_265" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Wanneroo.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_266" Guid="*">
+                <File Id="FILE_ID_266" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Woollahra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_267" Guid="*">
+                <File Id="FILE_ID_267" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Wujal Wujal.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_20">
+            <Component Id="CMP_ID_268" Guid="*">
+                <File Id="FILE_ID_268" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Tumbi Umbi/LE Yarra.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_269" Guid="*">
+                <File Id="FILE_ID_269" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Barker.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_270" Guid="*">
+                <File Id="FILE_ID_270" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Far and small.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_271" Guid="*">
+                <File Id="FILE_ID_271" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Freaky cave.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_272" Guid="*">
+                <File Id="FILE_ID_272" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Ghost from the opera.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_273" Guid="*">
+                <File Id="FILE_ID_273" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Longerb.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_274" Guid="*">
+                <File Id="FILE_ID_274" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Mirko.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_275" Guid="*">
+                <File Id="FILE_ID_275" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Paste.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_276" Guid="*">
+                <File Id="FILE_ID_276" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Pitched.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_277" Guid="*">
+                <File Id="FILE_ID_277" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Shoots of reverbation.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_278" Guid="*">
+                <File Id="FILE_ID_278" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Slavko.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_279" Guid="*">
+                <File Id="FILE_ID_279" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Slewerb.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_280" Guid="*">
+                <File Id="FILE_ID_280" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Werby.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_21">
+            <Component Id="CMP_ID_281" Guid="*">
+                <File Id="FILE_ID_281" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Verbs/LE Wetwerb.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_282" Guid="*">
+                <File Id="FILE_ID_282" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Adorno.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_283" Guid="*">
+                <File Id="FILE_ID_283" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Autotalk.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_284" Guid="*">
+                <File Id="FILE_ID_284" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Broken Robot.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_285" Guid="*">
+                <File Id="FILE_ID_285" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Closed Doors.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_286" Guid="*">
+                <File Id="FILE_ID_286" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Friendly Voice.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_287" Guid="*">
+                <File Id="FILE_ID_287" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Frobot.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_288" Guid="*">
+                <File Id="FILE_ID_288" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Megnetic Collapse.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_289" Guid="*">
+                <File Id="FILE_ID_289" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE No Safety.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_290" Guid="*">
+                <File Id="FILE_ID_290" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Robokid.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_291" Guid="*">
+                <File Id="FILE_ID_291" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Rostfrei.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_292" Guid="*">
+                <File Id="FILE_ID_292" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE The Fabric of Sound.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_293" Guid="*">
+                <File Id="FILE_ID_293" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE Totalbot.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_2931" Guid="*">
+                <File Id="FILE_ID_2931" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE WhispererThree.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_22">
+            <Component Id="CMP_ID_2932" Guid="*">
+                <File Id="FILE_ID_2932" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Voices/LE WhisperMe.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_294" Guid="*">
+                <File Id="FILE_ID_294" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE ghost guitar.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_295" Guid="*">
+                <File Id="FILE_ID_295" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah fast.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_296" Guid="*">
+                <File Id="FILE_ID_296" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah medium.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_297" Guid="*">
+                <File Id="FILE_ID_297" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah nyah.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_298" Guid="*">
+                <File Id="FILE_ID_298" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah sleepy.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_299" Guid="*">
+                <File Id="FILE_ID_299" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah slow.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_300" Guid="*">
+                <File Id="FILE_ID_300" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah soft fast.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_301" Guid="*">
+                <File Id="FILE_ID_301" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah soft medium.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_302" Guid="*">
+                <File Id="FILE_ID_302" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah soft slow.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_303" Guid="*">
+                <File Id="FILE_ID_303" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah whisper.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_23">
+            <Component Id="CMP_ID_304" Guid="*">
+                <File Id="FILE_ID_304" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Presets/Wahs/LE wah yu.swp" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="SUPPORT_ROOT">
+            <Component Id="CMP_ID_305" Guid="*">
+                <File Id="FILE_ID_305" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/readme.rtf" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_308" Guid="*">
+                <File Id="FILE_ID_308" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/01.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_309" Guid="*">
+                <File Id="FILE_ID_309" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/02.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_310" Guid="*">
+                <File Id="FILE_ID_310" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/03.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_311" Guid="*">
+                <File Id="FILE_ID_311" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/04.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_312" Guid="*">
+                <File Id="FILE_ID_312" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/05.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_313" Guid="*">
+                <File Id="FILE_ID_313" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/06.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_314" Guid="*">
+                <File Id="FILE_ID_314" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/07.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_315" Guid="*">
+                <File Id="FILE_ID_315" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/08.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_316" Guid="*">
+                <File Id="FILE_ID_316" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/09.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_317" Guid="*">
+                <File Id="FILE_ID_317" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/10.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_318" Guid="*">
+                <File Id="FILE_ID_318" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/11.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_319" Guid="*">
+                <File Id="FILE_ID_319" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/12.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_320" Guid="*">
+                <File Id="FILE_ID_320" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/13.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_321" Guid="*">
+                <File Id="FILE_ID_321" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/14.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_322" Guid="*">
+                <File Id="FILE_ID_322" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/16.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_323" Guid="*">
+                <File Id="FILE_ID_323" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/17.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_324" Guid="*">
+                <File Id="FILE_ID_324" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/19.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_325" Guid="*">
+                <File Id="FILE_ID_325" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/20.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_326" Guid="*">
+                <File Id="FILE_ID_326" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/21.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_327" Guid="*">
+                <File Id="FILE_ID_327" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/22.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_328" Guid="*">
+                <File Id="FILE_ID_328" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/23.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_329" Guid="*">
+                <File Id="FILE_ID_329" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/24.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_330" Guid="*">
+                <File Id="FILE_ID_330" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/25.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_331" Guid="*">
+                <File Id="FILE_ID_331" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/26.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_332" Guid="*">
+                <File Id="FILE_ID_332" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/27.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_333" Guid="*">
+                <File Id="FILE_ID_333" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/28.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_334" Guid="*">
+                <File Id="FILE_ID_334" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/29.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_335" Guid="*">
+                <File Id="FILE_ID_335" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/30.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_336" Guid="*">
+                <File Id="FILE_ID_336" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/31.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_337" Guid="*">
+                <File Id="FILE_ID_337" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/32.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_338" Guid="*">
+                <File Id="FILE_ID_338" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/33.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_339" Guid="*">
+                <File Id="FILE_ID_339" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/34.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_340" Guid="*">
+                <File Id="FILE_ID_340" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/35.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_341" Guid="*">
+                <File Id="FILE_ID_341" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/36.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_342" Guid="*">
+                <File Id="FILE_ID_342" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/37.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_343" Guid="*">
+                <File Id="FILE_ID_343" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/38.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_344" Guid="*">
+                <File Id="FILE_ID_344" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/39.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_345" Guid="*">
+                <File Id="FILE_ID_345" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/40.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_346" Guid="*">
+                <File Id="FILE_ID_346" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/41.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_347" Guid="*">
+                <File Id="FILE_ID_347" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/42.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_348" Guid="*">
+                <File Id="FILE_ID_348" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/43.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_349" Guid="*">
+                <File Id="FILE_ID_349" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/44.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_350" Guid="*">
+                <File Id="FILE_ID_350" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/45.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_351" Guid="*">
+                <File Id="FILE_ID_351" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/46.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_352" Guid="*">
+                <File Id="FILE_ID_352" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/47.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_353" Guid="*">
+                <File Id="FILE_ID_353" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/48.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_354" Guid="*">
+                <File Id="FILE_ID_354" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/49.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_355" Guid="*">
+                <File Id="FILE_ID_355" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/50.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_356" Guid="*">
+                <File Id="FILE_ID_356" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/51.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_357" Guid="*">
+                <File Id="FILE_ID_357" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/52.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_358" Guid="*">
+                <File Id="FILE_ID_358" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/53.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_359" Guid="*">
+                <File Id="FILE_ID_359" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/55.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_360" Guid="*">
+                <File Id="FILE_ID_360" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/56.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_361" Guid="*">
+                <File Id="FILE_ID_361" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/57.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_362" Guid="*">
+                <File Id="FILE_ID_362" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/58.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_363" Guid="*">
+                <File Id="FILE_ID_363" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/59.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_364" Guid="*">
+                <File Id="FILE_ID_364" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/60.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_365" Guid="*">
+                <File Id="FILE_ID_365" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/61.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_366" Guid="*">
+                <File Id="FILE_ID_366" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/62.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_367" Guid="*">
+                <File Id="FILE_ID_367" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/63.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_368" Guid="*">
+                <File Id="FILE_ID_368" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/64.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_369" Guid="*">
+                <File Id="FILE_ID_369" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/65.png" KeyPath="yes"/>
+            </Component>
+            <Component Id="CMP_ID_369_66" Guid="*">
+                <File Id="FILE_ID_369_66" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/66.png" KeyPath="yes"/>
+            </Component>
+            <Component Id="CMP_ID_369_67" Guid="*">
+                <File Id="FILE_ID_369_67" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/67.png" KeyPath="yes"/>
+            </Component>
+            <Component Id="CMP_ID_369_68" Guid="*">
+                <File Id="FILE_ID_369_68" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/68.png" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_370" Guid="*">
+                <File Id="FILE_ID_370" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/Vera.ttf" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_24">
+            <Component Id="CMP_ID_371" Guid="*">
+                <File Id="FILE_ID_371" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Resources/VeraBd.ttf" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_372" Guid="*">
+                <File Id="FILE_ID_372" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/BFandD.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_373" Guid="*">
+                <File Id="FILE_ID_373" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/Carrier.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_374" Guid="*">
+                <File Id="FILE_ID_374" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/CB ADBeat.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_375" Guid="*">
+                <File Id="FILE_ID_375" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/CB eLVoc.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_376" Guid="*">
+                <File Id="FILE_ID_376" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/CB melVoc.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_377" Guid="*">
+                <File Id="FILE_ID_377" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/CB SawRand.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_378" Guid="*">
+                <File Id="FILE_ID_378" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/CB uTBeat.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_379" Guid="*">
+                <File Id="FILE_ID_379" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/CB uTBeat2.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_380" Guid="*">
+                <File Id="FILE_ID_380" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/MW-Coagula02.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_381" Guid="*">
+                <File Id="FILE_ID_381" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/MW-HumKlang.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_382" Guid="*">
+                <File Id="FILE_ID_382" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/MW-Metallica1.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_383" Guid="*">
+                <File Id="FILE_ID_383" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/MW-Metallica2.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_384" Guid="*">
+                <File Id="FILE_ID_384" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/MW-White-Noise.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_385" Guid="*">
+                <File Id="FILE_ID_385" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/NoiseWhite.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_386" Guid="*">
+                <File Id="FILE_ID_386" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/SpectrumWorx.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_387" Guid="*">
+                <File Id="FILE_ID_387" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/Sweep-20-2000.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="DIR_ID_25">
+            <Component Id="CMP_ID_388" Guid="*">
+                <File Id="FILE_ID_388" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/Samples/Sweep-2000-20.mp3" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+        <DirectoryRef Id="VST24_ROOT">
+            <Component Id="CMP_VST24_DLL" Guid="*">
+                <File Id="FILE_ID_VST24_DLL" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/VST24PluginBundle/@vstDirectory@/SpectrumWorx.dll" KeyPath="yes"/>
+                <RemoveFile Id="PathsFile" Name="SpectrumWorx.paths" On="uninstall"/>
+            </Component>
+        </DirectoryRef>
+        <!--
+            http://wixtoolset.org/documentation/manual/v3/howtos/files_and_registry/create_start_menu_shortcut.html
+            http://robmensching.com/blog/posts/2007/4/27/how-to-create-an-uninstall-shortcut-and-pass-all-the
+        -->
+        <DirectoryRef Id="START_MENU_FOLDER">
+            <Component Id="StartMenuShortcuts" Guid="@LE_CPACK_WIX_START_MENU_GUID@">
+                <!-- http://wixtoolset.org/issues/4117 -->
+                <File Id="LEWebLink" Source="@LE_CPACK_WIX_WORK_DIR@/@CPACK_PACKAGE_FILE_NAME@/SupportFiles/Little Endian/SpectrumWorx/LittleEndian.url" Name="Check for updates....url"/>
+                <Shortcut Id="UsersManual"
+                    Name="User's Guide"
+                    Target="[DIR_ID_3]User's Guide.PDF"
+                    Advertise="no"
+                />
+                <Shortcut Id="SupportFilesDir"
+                    Name="Support files"
+                    Target="[SUPPORT_ROOT]"
+                    Advertise="no"
+                />
+                <Shortcut Id="UninstallProduct"
+                          Name="Uninstall"
+                          Target="[System64Folder]msiexec.exe"
+                          Arguments="/x [ProductCode]"
+                          Description="Uninstalls SpectrumWorx from the system (leaves your licences and other custom created files intact)."
+                          Advertise="no"
+                />
+                <RemoveFolder Id='RemoveStartMenuFolder'    Directory='START_MENU_FOLDER'  On='uninstall'/>
+                <RemoveFolder Id='RemoveLittleEndianFolder' Directory='LittleEndianFolder' On='uninstall'/>
+                <RegistryValue Root="HKCU" Key="Software\Little Endian\SpectrumWorx" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+</Wix>

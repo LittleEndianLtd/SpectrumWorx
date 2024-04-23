@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?include "@CPACK_PACKAGE_DIRECTORY@/_CPack_Packages/Little Endian/WIX/cpack_variables.wxi"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+    <?if $(sys.BUILDARCH) = "x64" ?>
+        <?define archSuffix = "(64 bit)"?>
+    <?else ?>
+        <?define archSuffix = "(32 bit)"?>
+    <?endif ?>
+
+    <Product Id="$(var.CPACK_WIX_PRODUCT_GUID)"
+        Name="$(var.CPACK_PACKAGE_NAME) $(var.archSuffix)"
+        Language="1033"
+        Version="$(var.CPACK_PACKAGE_VERSION)"
+        Manufacturer="$(var.CPACK_PACKAGE_VENDOR)"
+        UpgradeCode="$(var.CPACK_WIX_UPGRADE_GUID)"
+    >
+
+        <!--
+            http://msdn.microsoft.com/en-us/library/aa370905(VS.85).aspx#operating_system_properties
+            http://windows-installer-xml-wix-toolset.687559.n2.nabble.com/How-to-know-which-InstallerVersion-to-use-td3934059.html
+        -->
+        <Package
+            InstallerVersion="301"
+            Compressed="yes"
+            Description="The ultimate sound mangler!"
+            InstallPrivileges="elevated"
+        />
+        
+        <!--
+            http://stackoverflow.com/questions/16568901/what-exactly-does-the-arch-argument-on-the-candle-command-line-do
+            http://www.joyofsetup.com/2010/05/14/working-hard-or-hardly-working
+            http://stackoverflow.com/questions/1922259/how-to-implement-single-installer-for-32-64-platforms
+            http://stackoverflow.com/questions/2458550/wix-prevent-32-bit-installer-from-running-on-64-bit-windows
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa368012(v=vs.85).aspx#Access_Prefixes
+        -->
+        <?if $(sys.BUILDARCH) = "x64" ?>
+            <Condition Message="SpectrumWorx 64 bit requires Windows Vista x64 or later">
+                VersionNT64 >= 600
+            </Condition>
+        <?else ?>
+            <Condition Message="SpectrumWorx 32 bit requires Windows XP SP3 or later">
+                ( VersionNT > 501 ) OR ( VersionNT = 501 AND ServicePackLevel = 3 )
+            </Condition>
+        <?endif ?>
+
+        <Media Id="1" Cabinet="media1.cab" EmbedCab="yes"/>
+
+        <Property Id="DISABLEADVTSHORTCUTS" Value="1"/>
+
+        <!--
+            http://sourceforge.net/p/wix/bugs/2405
+            http://wixtoolset.org/issues/4118
+        -->
+        <MajorUpgrade
+            Schedule="afterInstallInitialize"
+            AllowSameVersionUpgrades="yes"
+            DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit."
+        />
+        
+        <Property Id="ALLUSERS" Value="1"/>
+
+        <WixVariable Id="WixUILicenseRtf" Value="$(var.CPACK_WIX_LICENSE_RTF)"/>
+
+        <!-- http://geekswithblogs.net/jwatson/archive/2006/11/03/96052.aspx -->
+        <Property Id="VST24_ROOT">
+            <RegistrySearch Id="VST24PathKey"
+                    Root="HKLM"
+                    Key="Software\VST"
+                    Name="VSTPluginsPath"
+                    Type="raw"
+            />
+        </Property>
+
+        <?ifdef CPACK_WIX_PRODUCT_ICON?>
+        <Property Id="ARPPRODUCTICON">ProductIcon.ico</Property>
+        <Icon Id="ProductIcon.ico" SourceFile="$(var.CPACK_WIX_PRODUCT_ICON)"/>
+        <?endif?>
+
+        <?ifdef CPACK_WIX_UI_BANNER?>
+        <WixVariable Id="WixUIBannerBmp" Value="$(var.CPACK_WIX_UI_BANNER)"/>
+        <?endif?>
+
+        <?ifdef CPACK_WIX_UI_DIALOG?>
+        <WixVariable Id="WixUIDialogBmp" Value="$(var.CPACK_WIX_UI_DIALOG)"/>
+        <?endif?>
+
+        <!--
+            http://stackoverflow.com/questions/11233267/how-to-pass-customactiondata-to-a-customaction-using-wix
+            http://www.w3schools.com/js/default.asp
+            http://msdn.microsoft.com/en-us/library/aa371672%28VS.85%29.aspx
+            http://msdn.microsoft.com/en-US/library/aa371538.aspx Script types
+            http://www.installsite.org/pages/en/isnews/200108/index.htm
+            http://esprima.org/demo/validate.html Online syntax checker
+        -->
+        <Binary Id="createPathsFileScript" SourceFile="createPathsFile.js" />
+        <CustomAction Id="SetInstallPath" Property="CreatePathsFile" Value="[VST24_ROOT]|[SUPPORT_ROOT]" Execute="immediate"/>
+        <CustomAction Id="CreatePathsFile"
+            BinaryKey="createPathsFileScript"
+            JScriptCall="createPathsFile_CA"
+            Execute="deferred"
+            Impersonate="no"
+            Return="check"
+        />
+
+        <!-- http://technet.microsoft.com/en-us/library/cc753525.aspx -->
+        <CustomAction Id='SetPermissionsSupportRoot' Directory='LE_ROOT' ExeCommand='[System64Folder]icacls "[SUPPORT_ROOT]"         /T /Q /C /Grant Everyone:F' Return="ignore" Execute="deferred" Impersonate="no"/>
+        <CustomAction Id='SetPermissionsLicences'    Directory='LE_ROOT' ExeCommand='[System64Folder]icacls "[SUPPORT_ROOT]Licences" /T /Q /C /Grant Everyone:F' Return="ignore" Execute="deferred" Impersonate="no"/>
+        <CustomAction Id='SetPermissionsPresets'     Directory='LE_ROOT' ExeCommand='[System64Folder]icacls "[SUPPORT_ROOT]Presets"  /T /Q /C /Grant Everyone:F' Return="ignore" Execute="deferred" Impersonate="no"/>
+        <!--
+            ...mrmlj...doesn't work...hardcoded in directories.wxs...
+            http://stackoverflow.com/questions/3718680/how-do-i-set-an-msi-installation-folder-dynamically
+            <CustomAction Id="SetStartMenuFolder" Directory="START_MENU_FOLDER" Value="[ProductName]"/>
+            <CustomAction Id="SetStartMenuFolder" Property="START_MENU_FOLDER_PATH" Value="[ProductName]" Execute="immediate"/>
+        -->
+        <!-- http://wixtoolset.org/documentation/manual/v3/xsd/wix/installexecutesequence.html -->
+        <InstallExecuteSequence>
+            <!--Custom Action="SetStartMenuFolder" Before="CostInitialize"/ ...mrmlj... -->
+            <Custom Action="SetInstallPath"     Before="CreatePathsFile">NOT Installed OR REINSTALL</Custom>
+            <Custom Action="CreatePathsFile"    Before="InstallFinalize">NOT Installed OR REINSTALL</Custom>
+            <Custom Action="SetPermissionsSupportRoot" Before="InstallFinalize"/>
+            <Custom Action="SetPermissionsLicences" Before="InstallFinalize"/>
+            <Custom Action="SetPermissionsPresets" Before="InstallFinalize"/>
+        </InstallExecuteSequence>
+
+        <FeatureRef Id="SupportFiles"/>
+        <FeatureRef Id="VST24"/>
+
+        <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="Thank you for installing Little Endian's SpectrumWorx: The ultimate sound mangler!" />
+
+        <!-- http://wix.tramontana.co.hu/tutorial/user-interface/new-link-in-the-chain -->
+        <UI Id="SW_WixUI_FeatureTree">
+            <UIRef Id="WixUI_FeatureTree" />
+
+            <Dialog Id="ReadmeTxtDlg" Width="370" Height="270" Title="SpectrumWorx basic information and release notes" NoMinimize="yes">
+                <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="2" />
+                <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="&amp;Next">
+                    <!--Publish Event="ValidateProductID" Value="0">1</Publish-->
+                    <Publish Event="SpawnWaitDialog" Value="WaitForCostingDlg">CostingComplete = 1</Publish>
+                    <Publish Event="NewDialog" Value="CustomizeDlg">1</Publish>
+                </Control>
+                <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="&amp;Back">
+                    <Publish Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+                </Control>
+                <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="Cancel">
+                    <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+                </Control>
+                <Control Id="ReadmeText" Type="ScrollableText" X="9" Y="9" Width="352" Height="213" Sunken="yes" TabSkip="no">
+                    <Text SourceFile="@CPACK_RESOURCE_FILE_README@"></Text>
+                </Control>
+            </Dialog>
+
+            <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="ReadmeTxtDlg" Order="3">LicenseAccepted = "1"</Publish>
+            <Publish Dialog="CustomizeDlg" Control="Back" Event="NewDialog" Value="ReadmeTxtDlg" Order="2">NOT Installed</Publish>
+        </UI>
+
+    </Product>
+</Wix>

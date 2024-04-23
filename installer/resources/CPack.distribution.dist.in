@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<installer-gui-script minSpecVersion="1.0">
+    <title>@CPACK_PACKAGE_NAME@</title>
+    <welcome file="@CPACK_RESOURCE_FILE_WELCOME_NOPATH@"/>
+    <readme file="@CPACK_RESOURCE_FILE_README_NOPATH@"/>
+    <license file="@CPACK_RESOURCE_FILE_LICENSE_NOPATH@"/>
+    <options allow-external-scripts="no" customize="allow" rootVolumeOnly="false"></options>
+    <domains enable_anywhere="true" enable_localSystem="true" enable_currentUserHome="true"/>
+    <installation-check script="pm_install_check();"/>
+    <volume-check script="pm_volume_check();"/>
+    <script>function pm_volume_check() {
+  if(!(my.target.systemVersion &amp;&amp; /* >= */ system.compareVersions(my.target.systemVersion.ProductVersion, '10.5.6') >= 0)) {
+    my.result.title = 'Failure';
+    my.result.message = 'Installation cannot proceed, as not all requirements were met.';
+    my.result.type = 'Fatal';
+    return false;
+  }
+  return true;
+}
+
+
+function pm_install_check() {
+  if(!(/* >= */ system.compareVersions(system.version.ProductVersion, '10.6') >= 0)) {
+    my.result.title = 'Failure';
+    my.result.message = 'Installation cannot proceed, as not all requirements were met.';
+    my.result.type = 'Fatal';
+    return false;
+  }
+  return true;
+}
+</script>
+    @CPACK_PACKAGEMAKER_CHOICES@
+</installer-gui-script>

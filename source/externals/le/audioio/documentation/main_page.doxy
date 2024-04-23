@@ -1,0 +1,407 @@
+/**
+\addtogroup AudioIO AudioIO
+\brief The easy audio input (microphone) and output (headphones) library
+
+\if LE_STANDALONE_AUDIOIO
+\mainpage Introduction
+\endif
+
+\section aio_overview Overview
+
+<TABLE>
+ <TR>
+ <TD>@image html iconArrow.png</TD> 
+ <TD>The AudioIO library provides an easy way into <b>cross-platform audio input and output</b> with convenient integration with native OS facilities.</TD>
+ </TR> 
+ </TABLE>
+<BR>
+
+\subsection what What does AudioIO do?
+AudioIO enables:<BR>
+ 
+ <TABLE>
+ <TR>
+ <TD>@image html iconMicrophone.png</TD> 
+ <TD>Recording from a microphone.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconMp3.png</TD> 
+ <TD>Input from sound files.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconSpeaker.png</TD> 
+ <TD>Playback through speakers or headphones.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconFileOut.png</TD> 
+ <TD>Output to sound file.</TD>
+ </TR>
+ </TABLE>
+ 
+ <BR>
+ 
+ \subsection why Why use AudioIO?
+ <TABLE>
+ <TR>
+ <TD>@image html iconIPhone.png</TD> 
+ <TD>It's multiplatform.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconPuzzle.png</TD> 
+ <TD>It's simple and easy to fit into any app.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconUpdates.png</TD> 
+ <TD>It's maintained with regular updates.</TD>
+ </TR> 
+</TABLE>
+
+<BR>
+
+ \subsection formats Which file formats are supported? 
+In case of read, AudioIO supports any format that the underlying OS supports. AudioIO writes only wav files.
+
+ <TABLE>
+ <TR>
+ <TD colspan="2">Read from file:</TD>
+ </TR>
+ <TR>
+  <TD>@image html iconAndroid.png</TD>   
+ <TD> Android: 3gp, mp4, m4a, aac, ts, flac, mp3, mid, xmf, mxmf, rtttl, rtx, ota, imy, ogg, mkv, wav.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconIPhone.png</TD> 
+ <TD>iOS: aac, ac3, adts, aif, aiff, au, caf, mpa, mp3, mp4, m4a, sd2, snd, wav.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconWindows.png</TD> 
+ <TD>Windows: aac, aif, aiff, au, mpa, mp3, snd, wav, wma.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconOSX.png</TD> 
+ <TD>Mac OSX: aac, ac3, adts, aif, aiff, au, caf, mpa, mp3, mp4, m4a, sd2, snd, wav.</TD>
+ </TR> 
+ </TABLE>
+
+<BR>
+
+<TABLE>
+ <TR>
+ <TD colspan="2">Write to file:</TD>
+ </TR>
+ <TR>
+ <TD>@image html iconAndroid.png</TD> 
+ <TD> Android: wav.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconIPhone.png</TD> 
+ <TD>iOS: wav.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconWindows.png</TD> 
+ <TD>Windows: wav.</TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconOSX.png</TD> 
+ <TD>Mac OSX: wav.</TD>
+ </TR> 
+ </TABLE>
+    
+<BR>
+ 
+ \subsection start Where to start?
+ Best way to start is to: 
+ <TABLE>
+ <TR>
+ <TD>@image html iconTea.png</TD> 
+ <TD>Look into [Tutorial](tutorial.html) page and study the workflow. </TD>
+ </TR> 
+ <TR>
+ <TD>@image html iconDebug.png</TD> 
+ <TD>Study the [AudioIO] (group__AudioIO.html) classes:
+  - [Device] (classLE_1_1AudioIO_1_1Device.html) class which enables recording from microphone and playback through speakers.
+  - [File] (classLE_1_1AudioIO_1_1File.html) class which reads input media files.
+  - [InputWaveFile] (classLE_1_1AudioIO_1_1InputWaveFile.html) class for reading .wav files.
+  - [OutputWaveFile] (classLE_1_1AudioIO_1_1OutputWaveFile.html) class for writing .wav files. </TD>
+ </TR> 
+ </TABLE>
+ 
+ <BR>
+ 
+ \subsection questions Where to ask questions?
+  
+ <TABLE>
+ <TR>
+ <TD>@image html iconEmail.png</TD> 
+ <TD>Plese visit our [contact page] (http://LittleEndian.com/contact).</TD>
+ </TR> 
+ </TABLE>
+
+<BR>
+ 
+<hr>
+
+\section aio_usage General usage and design notes
+
+\subsection aio_requirements Requirements
+
+\subsubsection aio_tools Tools and environment
+  - Android:
+    - API level 15
+    - NDK r11c or later
+    - Clang 3.5 or later (with enabled C++11 support)
+    - x86 or ARM CPU
+    - links with libc++
+    - requires linking with the OpenSL ES system-provided library
+    - requires the RECORD_AUDIO and MODIFY_AUDIO_SETTINGS permissions
+  - iOS:
+    - iOS 5.1.1 or later
+    - Xcode 6 or later
+    - requires linking with the Accelerate, AudioToolbox and CoreAudio frameworks (the development build additionally requires the Foundation framework)
+  - OS X:
+    - OS X 10.7 or later
+    - Xcode 6 or later
+    - links with libc++
+    - requires linking with the Accelerate and CoreAudio frameworks (the development build additionally requires the CoreServices framework)
+  - Windows:
+    - Windows Vista or later
+    - Visual Studio 2010 (SP1) up to Visual Studio 2013 (update 5)
+    - x86 SSE2 capable CPU
+    - links with the static MSVC runtime (a single library works with all the supported MSVC versions)
+- 3rd party libraries:
+  - Android, Windows: Boost 1.54 or later (a header-only subset is required, the needed portion of version 1.60.0 is bundled with the SDK and is located at /include/boost).
+
+<hr>
+
+\subsection aio_buildConfiguration Build configuration
+- Two builds of the library are provided: the "release" build intended for public release/retail/RTM builds, and the "development" build that has basic sanity checks compiled in that will show assertion failures in cases of incorrect usage (depending on the target OS, assertion failures will be reported with one or more of the following: message boxes, stderr messages, system log entries and aborting or breaking into the debugger)
+- Code specifically optimized for a given architecture/CPU is provided in the form of separate libraries, no built in runtime detection and dispatching is provided. The following builds are provided:
+    - Android:
+        - ARMv7a_VFP3-D16 (default/minimum guaranteed armeabi-v7a architecture, targets API 15/4.0.3/ICS)
+        - ARMv7a_NEON (targets API 15/4.0.3/ICS)
+        - ARMv8a_64 (default/minimum guaranteed arm64-v8a architecture, targets API 21/5.0/Lollipop)
+        - x86-32_SSSE3 (default/minimum guaranteed x86 architecture, targets API 18/4.3.1/JB)
+        - x86-64_SSE4.2 (default/minimum guaranteed x86-64 architecture, targets API 21/5.0/Lollipop)
+        - mips - NOT SUPPORTED!
+    - iOS: single universal fat static library with armv7, armv7s, arm64, i386 (simulator) and x86_64 (simulator) slices
+    - OSX:
+        - x86-32_SSE3   + x86-64_SSSE3  universal static library
+        - x86-32_SSE4.1 + x86-64_SSE4.1 universal static library
+    - Windows:
+        - x86-32_SSE2
+        - x86-32_SSE4.1
+        - x86-64_SSE3
+        - x86-64_SSE4.1
+    - for additional support and/or optimizations for specific architectures please contact us.
+- LE SDKs and example apps require basic C++11 support which in turn requires
+  appropriate compiler support (GCC and Clang compilers require the -std=c++11
+  option, with Visual Studio 2010 and later C++11 support is always on).
+
+<hr>
+
+\subsection aio_error Error handling
+
+- Operations that can potentially fail are grouped and isolated in order to
+  offer the no-fail guarantee wherever possible thereby simplifying error
+  reporting. Exceptions are not used and, where required, errors are reported
+  with statically allocated error message strings (denoted by the error_msg_t
+  data type).
+- The library does not handle incorrect usage. Incorrect usage or failure to
+  comply with documented preconditions for a given function results in undefined
+  behaviour or assertion failures in release or development builds,
+  respectively.
+- Android specific:
+  - during normal operation you may notice the follwing messages in the Logcat:
+    - "Leaving BufferQueue::Clear (SL_RESULT_INTERNAL_ERROR)"
+    - "Leaving Object::GetInterface (SL_RESULT_FEATURE_UNSUPPORTED)".
+    These warnings are harmless and can freely be ignored (some of them will not
+    even appear in release builds while others are simply due to not-so-perfect
+    OpenSL implementations on many Android versions but are nonetheless not
+    critical)
+  - recording in the emulator is severely limited (usually only the 8kHz, mono,
+    16bit PCM format is accepted - this is a platform, not an AudioIO,
+    limitation).
+
+<hr>
+
+\section aio_rnotes Release Notes
+
+* <B>2.2</B> @ 2016-April-19
+  - fixed:
+    - OSX: Device destructor to call close()
+  - BREAKING CHANGES:
+    - dropped support for Gingerbread and armv6
+    - dropped support for GCC and libstdc++ (deprecated by Google)
+    - added support for NDK r11 and dropped support for prior versions
+.
+* <B>2.1</B> @ 2016-February-19
+- added:
+  - get*Position() APIs and move constructors to the various *File classes
+  - Device::singleton() - a convenience static member function for apps that
+    otherwise use a single global Device instance
+  - Android, Utility library: (more) JNI helper functionality
+  - Windows: 64bit builds
+- fixed:
+  - added missing Boost headers (for targets which require it)
+  - Android:
+    - linker errors when targeting 64 bit ABIs
+    - sporadic crashes or lockups when reusing a File object
+    - mono AAC & MP3 files being played at half-speed on older phones
+    - noise when feeding out-of-dynamic-range samples to the Device class
+  - iOS: assertion failures when managing the audio session outside of AudioIO.
+  - Windows:
+    - bogus assertion failure when closing a File after a failed open
+      attempt
+    - lockups when using a global Device instance
+- improved:
+  - overall performance and binary size reduction
+  - Device::setCallback() now accepts move-only objects and plain function
+    pointers (without a context pointer)
+  - Android: linking with libc++ is no longer mandatory (GCC and libstdc++ can also be used)
+.
+* <B>2.0.3</B> @ 2015-September-17
+- fixed:
+  - OSX: random crashes in debug/development builds under Yosemite.
+- improved:
+  - OSX: brand new implementation with minimised overhead.
+.
+* <B>2.0.2</B> @ 2015-July-30
+- improved:
+  - The read() member function of the *File classes logs attempts to read beyond
+    EOF in development builds.
+.
+* <B>2.0.1</B> @ 2015-June-30
+- fixed:
+  - Android: overflows in lengthInSampleFrames() and remainingSampleFrames()
+    File member functions for files longer than approximately one and a half
+    minutes.
+.
+* <B>2.0</B> @ 2015-June-15
+- added:
+  - looped and silence-padded read functions for *File classes
+  - OutputWaveFileAsync class for asynchronous WAVE file writing
+  - Device::setCallback() block/lambda/closure/generic functor support
+- changed:
+  - BREAKING CHANGES:
+    - Device::setCallback() API (please consult the documentation for more
+      information)
+    - Android: linking with libc++ is now mandatory
+    - OSX: dropped support for 10.6 (Snow Leopard), OSX builds now use libc++
+- improved:
+  - Android: removed the internal two channel limitation from the File and
+    Device classes (whether multichannel audio will work with either class
+    depends on the underlying OS version)
+- fixed:
+  - documentation
+  - InputWaveFile::close() missing symbol
+  - Android:
+    - incorrect decoding, assertion failures, infinite loops, crashes and/or
+      deadlocks in certain scenarios with the File class
+    - crashes when not using the NativeActivity class
+  - iOS: fixed crashes in the Device class due to a race-condition between the
+    destructor and an active callback
+  - Windows: deadlocks in the File class
+.
+* <B>1.2.5</B> @ 11.28.2014
+- added:
+  - Android: arm64-v8a and x86-64 builds.
+- changed:
+  - BREAKING CHANGES:
+    - Android: minimum NDK version updated to r10c.
+    - Android: removed the ARMv5TE_soft-float (obsolete) and ARMv7a_VFP3-D32
+     (rare) builds.
+- fixed:
+  - OutputWaveFile handling of clipped input.
+  - Android, Windows: File class AAC/M4A decoding.
+.
+* <B>1.2.4</B> @ 09.01.2014
+- added:
+  - close() member function to the various *File classes.
+
+- fixed:
+  - OutputWaveFile creating not fully valid WAVE files that could not be read
+    on certain WAVE reader implementations.
+  - allowed creation of AudioIO objects on the heap
+  - Android: assertion failures when recording was attempted on certain Samsung
+    devices.
+.
+* <B>1.2.3</B> @ 07.31.2014
+- added:
+  - Device::latency() member function.
+
+- changed:
+  - OutputWaveFile class to save 16bit PCM files.
+
+- fixed:
+  - crashes in InputWaveFile::open() on POSIX systems when the requested file
+    is not found.
+  - values returned by InputWaveFile remainingSamples() and lengthInSamples()
+    member functions for files with more than one channel.
+  - iOS: audio session configuration so that playback-only operation does not
+    use the "receiver speaker"
+  - iOS/OSX: File::open() failures with non-mono files.
+  - Windows: assertion failures in the File class with WAVE files with
+    extended formats.
+
+- improved:
+  - minor performance improvements in the InputWaveFile::read() member
+    function when reading 24 bit files.
+.
+* <B>1.2.2</B> @ 07.22.2014
+- fixed:
+  - Android:
+    - fixed cases when the File::read() member function would incorrectly report
+      the number of read samples
+    - Utility lib - accessing resource files
+.
+* <B>1.2.1</B> @ 07.17.2014
+- fixed:
+  - InputWaveFile handling of extended-format files and files with unusual
+    placement of optional RIFF chunks.
+  - Android: crashes when a Device instance goes out of scope while in the
+    playback and/or recording state.
+  - Windows: linker errors with Visual Studio versions other than 2010.
+.
+* <B>1.2.0</B> @ 07.14.2014
+- added:
+  - seek capability (setTimePosition() and setSamplePosition() member
+    functions) to File and InputWaveFile classes.
+
+- fixed:
+  - minor documentation fixes and improvements.
+
+.
+* <B>1.1.0</B> @ 06.06.2014.
+- First standalone edition.
+
+- added:
+  - Generic "File" class capable of decoding any audio file that the
+    underlying OS supports.
+  - improved handling of special file system locations (e.g. "resources",
+    "documents", "application data") with the help of the new Utility library.
+  - restart() and lengthInSamples() member functions to input file classes.
+
+- changed:
+  - read() member functions of input file classes now return the number of
+    samples actually read.
+
+- fixed:
+  - OutputWaveFile not filling out the WAVE header when creating a new file
+  with the same instance.
+  - Device multichannel operation
+  - iOS: Device input-only operation
+
+* <B>1.0.1</B> @ 03.05.2014.
+- added:
+  - Android: x86 support.
+- fixed:
+  - Android: crashes when running under the emulator.
+.
+* <B>1.0.0</B> @ 01.24.2014.
+- Initial version for Android, iOS, Mac and Windows.
+
+<hr>
+Copyright (C) Little Endian Ltd 2014 - 2015.
+@{
+@}
+*/

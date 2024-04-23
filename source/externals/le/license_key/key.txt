@@ -1,0 +1,5 @@
+Little Endian key-01:
+ - 4096 bit RSA key
+ - generated with OpenSSL.exe 1.0
+ - exported into C++-ready format using LEKeygen SVN rev.1418 with LibTomCrypt
+   1.17

@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// \file allEffectImpls.hpp
+/// ------------------------
+///
+/// A single place for inclusion of all the module impl classes that will be
+/// used in the SpectrumWorx build process (i.e. the modules that will appear in
+/// the menus and be available to the user).
+/// Automatically updated by CMake.
+///
+/// Copyright (c) 2011 - 2016. Little Endian Ltd. All rights reserved.
+///
+////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
+#ifndef allEffectImpls_hpp__387DAEB3_6C27_410A_9EB4_441604C7A12D
+#define allEffectImpls_hpp__387DAEB3_6C27_410A_9EB4_441604C7A12D
+#pragma once
+//------------------------------------------------------------------------------
+@selectedImplIncludeList@
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+#endif // allEffectImpls_hpp

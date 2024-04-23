@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>     <string>English</string>
+    <key>CFBundleExecutable</key>            <string>SpectrumWorx</string>
+    <key>CFBundleGetInfoString</key>         <string>SpectrumWorx @versionString@ (c) 2011 - 2014 Little Endian Ltd.</string>
+    <key>CFBundleIconFile</key>              <string>SpectrumWorx.icns</string>
+    <key>CFBundleIdentifier</key>            <string>com.littleendian.spectrumworx.au</string>
+    <key>CFBundleInfoDictionaryVersion</key> <string>6.0</string>
+    <key>CFBundlePackageType</key>           <string>BNDL</string>
+    <key>CFBundleSignature</key>             <string>LESW</string>
+    <key>CFBundleVersion</key>               <string>@versionString@</string>
+    <key>CFBundleShortVersionString</key>    <string>@versionString@</string>
+    <key>CSResourcesFileMapped</key>         <true/>
+    <key>NSHumanReadableCopyright</key>      <string>Little Endian Ltd.</string>
+    <key>AudioComponents</key>
+    <array>
+      <dict>
+        <key>name</key>            <string>Little Endian: SpectrumWorx</string>
+        <key>description</key>     <string>The Ultimate Sound Mangler!</string>
+        <key>factoryFunction</key> <string>lePluginAUFactory</string>
+        <key>manufacturer</key>    <string>LE00</string>
+        <key>type</key>            <string>aufx</string>
+        <key>subtype</key>         <string>SW00</string>
+        <key>version</key>         <integer>0x000@versionMajor@0@versionMinor@0@versionPatch@</integer>
+      </dict>
+    </array>
+</dict>
+</plist>

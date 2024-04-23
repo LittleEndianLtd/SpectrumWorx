@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+    <?if $(sys.BUILDARCH) = "x64" ?>
+        <?define PlatformProgramFilesFolder = "ProgramFiles64Folder"?>
+        <?define PlatformCommonFilesFolder  = "CommonFiles64Folder" ?>
+        <?define archSuffix = "(64 bit)"?>
+    <?else ?>
+        <?define PlatformProgramFilesFolder = "ProgramFilesFolder"  ?>
+        <?define PlatformCommonFilesFolder  = "CommonFilesFolder"   ?>
+        <?define archSuffix = "(32 bit)"?>
+    <?endif ?>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="LittleEndianFolder" Name="Little Endian">
+                    <Directory Id="START_MENU_FOLDER" Name="SpectrumWorx $(var.archSuffix)"/>
+                </Directory>
+            </Directory>
+            <Directory Id="$(var.PlatformProgramFilesFolder)">
+                <Directory Id="$(var.PlatformCommonFilesFolder)">
+                    <Directory Id="VST24_ROOT" Name="VST2"/>
+                </Directory>
+                <Directory Id="LE_ROOT" Name="Little Endian">
+                    <Directory Id="SUPPORT_ROOT" Name="SpectrumWorx">
+                        <Directory Id="DIR_ID_3" Name="Documents"/>
+                        <Directory Id="DIR_ID_4" Name="Licences"/>
+                        <Directory Id="DIR_ID_5" Name="Presets">
+                            <Directory Id="DIR_ID_6" Name="Autotune"/>
+                            <Directory Id="DIR_ID_7" Name="CinningBao">
+                                <Directory Id="DIR_ID_8" Name="SideChainables"/>
+                            </Directory>
+                            <Directory Id="DIR_ID_9" Name="Echoes"/>
+                            <Directory Id="DIR_ID_10" Name="ESS"/>
+                            <Directory Id="DIR_ID_11" Name="Extreme"/>
+                            <Directory Id="DIR_ID_12" Name="Frozen"/>
+                            <Directory Id="DIR_ID_13" Name="Martin Walker">
+                                <Directory Id="DIR_ID_14" Name="Gamma Shift"/>
+                            </Directory>
+                            <Directory Id="DIR_ID_15" Name="Noise"/>
+                            <Directory Id="DIR_ID_16" Name="Random"/>
+                            <Directory Id="DIR_ID_17" Name="Syndicate Synthetique">
+                                <Directory Id="DIR_ID_18" Name="Overt Dynamics"/>
+                            </Directory>
+                            <Directory Id="DIR_ID_19" Name="Techno"/>
+                            <Directory Id="DIR_ID_20" Name="Tumbi Umbi"/>
+                            <Directory Id="DIR_ID_21" Name="Verbs"/>
+                            <Directory Id="DIR_ID_22" Name="Voices"/>
+                            <Directory Id="DIR_ID_23" Name="Wahs"/>
+                        </Directory>
+                        <Directory Id="DIR_ID_24" Name="Resources"/>
+                        <Directory Id="DIR_ID_25" Name="Samples"/>
+                    </Directory>
+                </Directory>
+            </Directory>
+        </Directory>
+    </Fragment>
+</Wix>

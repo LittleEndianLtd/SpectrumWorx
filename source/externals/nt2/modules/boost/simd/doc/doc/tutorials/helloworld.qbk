@@ -1,0 +1,100 @@
+[section SIMD Hello World]
+
+[h2 Objectives]
+This tutorial will guides you through using the basic Boost.SIMD components and
+compiles your first Boost.SIMD enabled application.
+
+[h2 The Code]
+Here is a simple program computing a SIMD register full of 42.
+
+[import ../../../../../demo/helloworld/simd/helloworld_simd.cpp]
+[hello]
+
+[h2 The Pack Abstraction]
+
+The main element of Boost.SIMD is the [classref boost::simd::pack] class,
+accessible through the [headerref boost/simd/sdk/simd/pack.hpp] header file.
+`pack<T,N>` is an abstraction over a block of `N` elements of type `T`, quite
+similar to `std::array`. The main difference is that, for any given pair of `T`
+and `N` which can actually be mapped over one or more native SIMD register type,
+[classref boost::simd::pack] will use these instead of a simple scalar storage.
+Operations will then be performed on every element in the most efficient way
+possible for any given `T` and `N` which, in the case [classref boost::simd::pack]
+is actually implemented as a SIMD register, calling the proper SIMD instructions
+on those elements.
+
+[classref boost::simd::pack] supports multiple constructors. It is obviously
+copy constructible and default constructible. It also supports different way to
+initialize a [classref boost::simd::pack]'s content.
+
+A typedef statement is used before the declaration of the packs for brevity.
+These declarations include a so-called splatting constructor that takes one
+scalar value and replicates it in all elements of the pack.
+
+  p_t u(10);
+
+This is equivalent to the constructor on the following line:
+
+  p_t r = boost::simd::splat<p_t>(11);
+
+
+One can also initializes every element of the [classref boost::simd::pack] itself
+by enumerating them.
+
+  boost::simd::pack<float> r(11,11,11,11);
+
+Note that this constructor make the strong assumption that the size of your
+[classref boost::simd::pack] is correct. Unless required, it's always a good idea
+to try to not depend on a fixed size for [classref boost::simd::pack].
+
+Once initialized, operations on [classref boost::simd::pack] instances are similar
+to operations on scalar as all operators and standard library math functions
+are provided. A simple pattern make those functions and operators available:
+if you need to use function `foo`, you need to include `boost/simd/include/functions/foo.hpp`.
+Here, we include `plus.hpp` and `multiplies.hpp` to be able to use `operator+`
+and `operator*`.
+
+  res = (u + r) * 2.f;
+
+Note that type checking is stricter than one may expect when scalar and SIMD
+values are mixed. Boost.SIMD only allows mixing types of the same scalar kind,
+i.e reals with reals or integers with integers. Here, we have to multiply by
+`2.f` and not simply `2`.
+
+Finally, we display the [classref boost::simd::pack] content by using
+`operator<<` provided by the [headerref boost/simd/sdk/simd/io.hpp] header file.
+
+  std::cout << res << std::endl;
+
+[h2 Compiling the code]
+
+The compilation of the code is rather straight-forward: just pass the path to
+Boost.SIMD and use your compiler options to activate the desired SIMD extension
+support.
+
+For example, on `gcc`:
+
+  g++ my_code.cpp -O3 -o my_code -I/path/to/boost/ -msse2
+
+Some compilers, like Microsoft Visual Studio, don't propagate the fact a given
+architecture specific option is triggered. In this case, you need to also defines
+a architecture specific preprocessor symbol (see ... ).
+
+[h2 The result]
+
+We can then have a look at the program's output which should look like:
+
+  {42,42,42,42}
+
+Now, let's have a look at the generated assembly code (using `objdump` for
+example) :
+
+  movaps 0x300(%rip),%xmm0
+  addps  0x2e6(%rip),%xmm0
+  mulps  0x2ff(%rip),%xmm0
+  movaps %xmm0,(%rsp)
+
+That's it, we correctly emitted `*ps` instructions. Note how the abstraction
+introduced by [classref boost::simd::pack] don't incur any penalty.
+
+[endsect]
